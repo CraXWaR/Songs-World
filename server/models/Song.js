@@ -11,6 +11,10 @@ const songSchema  = new mongoose.Schema({
         type: String,
         minlength: [2, 'You should have at least 2 characters!']
     },
+    genre: {
+        required: true,
+        type: String
+    },
     year: {
         required: true,
         type: Number,
@@ -22,6 +26,10 @@ const songSchema  = new mongoose.Schema({
         type: String,
         minlength: [10, 'Description should have at least 10 characters!'],
         maxlength: [500, 'Description shouldn\'t have more than 500 characters!'],
+    },
+    songImage: {
+        required: true,
+        type: String
     },
     owner: {
         type: mongoose.Types.ObjectId,
