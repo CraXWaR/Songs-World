@@ -20,14 +20,14 @@ const userSchema = new mongoose.Schema({
     },
     songs: [
         {
-            type: mongoose.Types.ObjectId
-            //TODO... REF
+            type: mongoose.Types.ObjectId,
+            ref: 'Song'
         }
     ],
     favouriteSongs: [
         {
-            type: mongoose.Types.ObjectId
-            //TODO... REF
+            type: mongoose.Types.ObjectId,
+            ref: 'Song'
         }
     ],
     avatar: {
