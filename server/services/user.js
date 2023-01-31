@@ -20,7 +20,7 @@ const createAccessToken = (user) => {
         email: user._email
     }
 
-    const accessToken  = jwt.sign(payload, server.SECRET_KEY);
+    const accessToken = jwt.sign(payload, server.SECRET_KEY);
 
     return {
         id: user._id,
@@ -32,8 +32,8 @@ const createAccessToken = (user) => {
 }
 
 const register = async (data) => {
-    const existingUsername = await User.findOne({ username: data.username }); 
-    const existingEmail = await User.findOne({ email: data.email }); 
+    const existingUsername = await User.findOne({ username: data.username });
+    const existingEmail = await User.findOne({ email: data.email });
 
     if (existingUsername) {
         throw new Error('Username already exists!');
@@ -61,14 +61,14 @@ const login = async (email, password) => {
         let userToReturn = await createAccessToken(user);
         userToReturn.avatar = user.avatar;
         return userToReturn;
-        
+
     } else {
         throw new Error('Invalid email or password!');
     }
 }
 
 const logout = async (token) => {
-    await blacklisted.create({token});
+    await blacklisted.create({ token });
 }
 
 module.exports = {
