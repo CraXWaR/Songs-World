@@ -66,3 +66,16 @@ const login = async (email, password) => {
         throw new Error('Invalid email or password!');
     }
 }
+
+const logout = async (token) => {
+    await blacklisted.create({token});
+}
+
+module.exports = {
+    validateToken,
+    createAccessToken,
+    register,
+    login,
+    logout
+
+}
