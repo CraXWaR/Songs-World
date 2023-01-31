@@ -47,3 +47,22 @@ const register = async (data) => {
     return createAccessToken(user);
 
 }
+
+const login = async (email, password) => {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+        throw new Error('Invalid email or password!');
+    }
+
+    const isUser = await bcrypt.compare(password, user.password);
+
+    if (isUser) {
+        let userToReturn = await createAccessToken(user);
+        userToReturn.avatar = user.avatar;
+        return userToReturn;
+        
+    } else {
+        throw new Error('Invalid email or password!');
+    }
+}
