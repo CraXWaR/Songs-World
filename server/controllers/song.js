@@ -12,6 +12,8 @@ router.post('/', async (req, res) => {
         res.status(201).json(song);
     } catch (error) {
         console.log(error);
-        res.status(400).json({error: error.message});
+        res.status(400).json({ error: error.message });
     }
 })
+
+module.exports = router;
