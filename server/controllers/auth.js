@@ -28,3 +28,9 @@ router.post('/login', async (req, res) => {
 
     res.end();
 })
+
+router.delete('/logout', async (req, res) => {
+    let token = req.user.token;
+    await logout(token);
+    res.status(204).end();
+})
