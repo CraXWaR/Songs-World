@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const server = require('../environment');
+const server = require('../enviroment.js');
 const jwt = require('jsonwebtoken');
 const blacklisted = require('../models/Blacklisted');
 
