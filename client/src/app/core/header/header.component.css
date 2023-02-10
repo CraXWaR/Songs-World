@@ -1,0 +1,10 @@
+nav {
+    color: red;
+}
+ul {
+    list-style-type: none;
+}
+ul li a {
+    text-decoration: none;
+    cursor: pointer;
+}
