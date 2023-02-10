@@ -4,17 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { CatalogComponent } from './song/catalog/catalog.component';
+import { SongModule } from './song/song.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    SongModule
   ],
   providers: [],
   bootstrap: [AppComponent]
