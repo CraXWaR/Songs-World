@@ -8,6 +8,8 @@ nav {
 }
 ul {
     list-style-type: none;
+    display: flex;
+    text-align: center;
 }
 ul li a {
     text-decoration: none;
