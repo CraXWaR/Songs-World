@@ -1,17 +1,26 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-start justify-content-lg-start">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                 IMG
             </a>
-            <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <a href="/catalog" class="nav-link px-2 text-white">Catalog</a>
-                <a href="/create" class="nav-link px-2 text-white">Create</a>
-                <a href="/profile" class="nav-link px-2 text-white">Profile</a>
-            </div>
-            <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-end mb-md-0">
-                <a href="/login" class="nav-link px-2 text-white">Login</a>
-                <a href="/register" class="nav-link px-2 text-white">Register</a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="navigation">
+                    <a href="/catalog" class="nav-link px-2 text-white">Catalog</a>
+                </li>
+                <li class="navigation">
+                    <a href="/create" class="nav-link px-2 text-white navigation">Create</a>
+                </li>
+                <li class="navigation">
+                    <a href="/profile" class="nav-link px-2 text-white navigation">Profile</a>
+                </li>
+            </ul>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            </form>
+            <div class="text-end">
+                <a href="/login" class="btn btn-outline-light me-2">Login</a>
+                <a href="/register" class="btn btn-outline-light me-2">Register</a>
             </div>
         </div>
     </div>
