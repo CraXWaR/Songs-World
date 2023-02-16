@@ -1,0 +1,11 @@
+.login-container {
+    box-shadow: 0 0 28px #0000000d;
+    background-color: #fff;
+    border-radius: 6px;
+    margin: auto;
+    width: 30%;
+}
+
+.login-form {
+    padding: 3rem;
+}
