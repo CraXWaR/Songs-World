@@ -1,7 +1,7 @@
-nav {
+/* nav {
     width: fit-content;
     margin: auto;
-    /* margin-top: 3%; */
+    margin-top: 3%;
     display: block;
     border: 5px solid #7f91f1;
     background-color: #d1a1fd;
@@ -32,4 +32,18 @@ ul li a:visited {
 
 ul li a:hover{
     color: #5D3FD3;
+} */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 62px;
+}
+
+.navbar {
+    align-items: stretch;
+    display: flex;
+    position: relative;
+    z-index: 30;
+    min-height: 3.25rem;
 }

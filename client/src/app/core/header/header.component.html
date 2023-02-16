@@ -1,25 +1,18 @@
-<nav>
-    <ul>
-        <li>
-            <a routerLink="/">Home</a>
-        </li>
-        <li>
-            <a routerLink="/catalog">Catalog</a>
-        </li>
-        <li>
-            <a routerLink="/login">Login</a>
-        </li>
-        <li>
-            <a routerLink="/register">Register</a>
-        </li>
-        <li>
-            <a routerLink="/create">Create</a>
-        </li>
-        <li>
-            <a routerLink="/profile">Profile</a>
-        </li>
-        <li>
-            <a>Logout</a>
-        </li>
-    </ul>
-</nav>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-start justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                IMG
+            </a>
+            <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <a href="/catalog" class="nav-link px-2 text-white">Catalog</a>
+                <a href="/create" class="nav-link px-2 text-white">Create</a>
+                <a href="/profile" class="nav-link px-2 text-white">Profile</a>
+            </div>
+            <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-end mb-md-0">
+                <a href="/login" class="nav-link px-2 text-white">Login</a>
+                <a href="/register" class="nav-link px-2 text-white">Register</a>
+            </div>
+        </div>
+    </div>
+</header>
