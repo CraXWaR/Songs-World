@@ -3,9 +3,34 @@
     background-color: #fff;
     border-radius: 6px;
     margin: auto;
-    width: 30%;
+    margin-top: 10%;
+    width: 25%;
 }
 
 .login-form {
     padding: 3rem;
+}
+
+.input {
+    max-width: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-radius: 4px;
+    color: #1F1F1F;
+    padding: 5px;
+}
+
+/* .input:focus {
+    color: red;
+    border-color: #0081b8;
+    box-shadow: 0, 0, 0, 0.125em rgb(0, 129, 184);
+} */
+
+.btn-login {
+    width: 100%;
+    color: #fff;
+    background-color: #1F1F1F;
+    font-weight: bold;
+    border-radius: 4px;
 }
