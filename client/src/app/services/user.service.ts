@@ -21,10 +21,17 @@ export class UserService {
       return false;
     }
   }
+  register(data: {}) {
+    return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
+      tap((user) => {
+        this.user = user;
+      })
+    )
+  }
   login(data: {}) {
     return this.http.post<IUser>(`${API_URL}/login`, data).pipe(
       tap((user) => {
-        this.user = user
+        this.user = user;
       })
     )
   }
