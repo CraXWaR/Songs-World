@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 import { SongModule } from './song/song.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     SongModule,
     NgbModule,
     HttpClientModule,
-
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

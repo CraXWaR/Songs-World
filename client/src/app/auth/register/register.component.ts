@@ -23,6 +23,8 @@ export class RegisterComponent {
     });
   }
   register() {
+
+    
     this.userService.register(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);
