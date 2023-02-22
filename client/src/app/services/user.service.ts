@@ -4,7 +4,7 @@ import { IUser } from '../shared/interfaces/userInterface';
 import { tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-const API_URL = environment.production;
+const API_URL = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
