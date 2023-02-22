@@ -23,14 +23,14 @@ export class RegisterComponent {
     });
   }
   register() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     
     this.userService.register(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
         this.errors = errorHandler(err.error?.error);
       }
     })
