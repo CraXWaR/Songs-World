@@ -30,6 +30,7 @@ export class RegisterComponent {
         this.router.navigate(['/']);
       },
       error: (err) => {
+        console.log(err);
         this.errors = errorHandler(err.error?.error);
       }
     })
