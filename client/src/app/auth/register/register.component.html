@@ -1,5 +1,5 @@
 <div class="register-container">
-    <form class="register-form">
+    <form [formGroup]="form" class="register-form" (ngSubmit)="register"> 
         <div class="mb-3">
             <h2 class="mb-2">Sign Up</h2>
             <p>Already have an account? <a href="/login" class="ml-1">Sing In</a></p>

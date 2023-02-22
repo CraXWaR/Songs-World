@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     SongModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
