@@ -1,5 +1,5 @@
 <div class="login-container">
-    <form class="login-form">
+    <form [formGroup]="form" class="login-form" (ngSubmit)="login()">
         <div class="mb-3 text">
             <h2 class="mb-2">Sign In</h2>
             <p>Don't have an account? <a href="/register" class="ml-1">Sing Up</a></p>
@@ -7,14 +7,14 @@
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-4" name="email" placeholder="Email">
+                <input type="text" class="input mt-4" name="email" formControlName="email" placeholder="Email">
                 <label for="email"></label>
             </div>
         </div>
 
         <div class="field mb-5">
             <div class="control input-float">
-                <input type="password" class="input" name="password" placeholder="Password">
+                <input type="password" class="input" name="password" formControlName="password" placeholder="Password">
                 <label for="password"></label>
             </div>
         </div>
