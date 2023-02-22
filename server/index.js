@@ -14,7 +14,7 @@ async function serverStart() {
         //TODO middleware
         app.use(routes);
 
-        let port = process.env.PORT || 3030;
+        let port = process.env.PORT || 3000;
         app.listen(port, () => console.log(`Server listening on port ${port}`));
         await database();
     } catch (error) {

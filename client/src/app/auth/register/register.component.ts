@@ -23,7 +23,7 @@ export class RegisterComponent {
     });
   }
   register() {
-
+    console.log(this.form.value);
     
     this.userService.register(this.form.value).subscribe({
       next: () => {
