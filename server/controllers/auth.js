@@ -30,9 +30,19 @@ router.post('/login', async (req, res) => {
 })
 
 router.delete('/logout', async (req, res) => {
-    let token = req.user.token;
-    await logout(token);
-    res.status(204).end();
+    res.cookie('auth', 'none', {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true
+    });
+    res.send({
+        message: 'Cookie deleted successfully!'
+    });
+
+
+    // let token = req.user.token;
+    // await logout(token);
+    // res.status(204).end();
 })
 
 module.exports = router;
