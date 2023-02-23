@@ -25,7 +25,7 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
         this.user = user;
-        localStorage.setItem('token', this.user.accessToken);
+        // localStorage.setItem('token', this.user.accessToken);
       })
     )
   }
@@ -33,7 +33,7 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/login`, data).pipe(
       tap((user) => {
         this.user = user;
-        localStorage.setItem('token', this.user.accessToken);
+        // localStorage.setItem('token', this.user.accessToken);
       })
     )
   }

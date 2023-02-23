@@ -21,10 +21,17 @@
             <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form> -->
-            <div class="text-end">
-                <a href="/login" class="btn btn-outline-light me-2">Login</a>
-                <a href="/register" class="btn btn-outline-light me-2">Register</a>
-            </div>
+            <ng-container *ngIf="!isLogged">
+                <div class="text-end">
+                    <a href="/login" class="btn btn-outline-light me-2">Login</a>
+                    <a href="/register" class="btn btn-outline-light me-2">Register</a>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="isLogged">
+                <div class="text-end">
+                    <a (click)="logout()" class="btn btn-outline-light me-2">Logout</a>
+                </div>
+            </ng-container>
         </div>
     </div>
 </header>
