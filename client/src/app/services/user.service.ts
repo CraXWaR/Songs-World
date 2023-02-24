@@ -41,4 +41,7 @@ export class UserService {
     this.user = null;
     return this.http.delete(`${API_URL}/logout`).subscribe();
   }
+  // getUsername(token: {}) {
+  //   return this.http.get<IUser>(`${API_URL}/`, token);
+  // }
 }
