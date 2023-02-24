@@ -36,11 +36,6 @@ export class UserService {
       })
     )
   }
-  // if (localStorage.getItem('token')) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
   logout() {
     localStorage.removeItem('token');
     this.user = null;
