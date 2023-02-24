@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { IUser } from '../shared/interfaces/userInterface';
 import { tap } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
 const API_URL = 'http://localhost:3000';
 
 @Injectable({
@@ -25,7 +24,7 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
         this.user = user;
-        // localStorage.setItem('token', this.user.accessToken);
+        localStorage.setItem('token', this.user.accessToken);
       })
     )
   }
@@ -33,11 +32,17 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/login`, data).pipe(
       tap((user) => {
         this.user = user;
-        // localStorage.setItem('token', this.user.accessToken);
+        localStorage.setItem('token', this.user.accessToken);
       })
     )
   }
+  // if (localStorage.getItem('token')) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
   logout() {
+    localStorage.removeItem('token');
     this.user = null;
     return this.http.delete(`${API_URL}/logout`).subscribe();
   }

@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HeaderComponent {
 
   get isLogged(): boolean {
-    if (this.userService.user) {
+    if (localStorage.getItem('token')) {
       return true;
     } else {
       return false;
