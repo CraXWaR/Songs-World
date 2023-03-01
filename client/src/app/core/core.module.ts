@@ -11,11 +11,11 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
