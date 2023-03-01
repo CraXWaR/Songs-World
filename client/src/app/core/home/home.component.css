@@ -11,7 +11,16 @@
 
 .container {
     width: 60%;
-    margin-top: 250px;
-    align-items: inherit;
-    color: #fff;
+    margin-top: 200px;
+}
+
+h1 {
+    width: 50%;
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+p {
+    font-size: 1.5rem;
 }
