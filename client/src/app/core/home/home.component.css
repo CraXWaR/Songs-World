@@ -1,10 +1,17 @@
-.home-background {
-    width: 100%;
-    background-color: black;
-    /* position: absolute; */
+.main-section {
+    font-family: 'Nunito Sans', sans-serif;
+}
 
+.home-background {
+    background-color: black;
+    text-align: center;
+    position: absolute; 
+    width: 100%;
 }
 
 .container {
+    width: 60%;
+    margin-top: 250px;
     align-items: inherit;
+    color: #fff;
 }
