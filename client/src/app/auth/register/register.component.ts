@@ -11,6 +11,7 @@ import { emailValidator, passwordValidator } from 'src/app/shared/validators';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  
   form!: FormGroup;
   errors: string | undefined = undefined;
 
