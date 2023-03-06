@@ -3,8 +3,9 @@
     background-color: #fff;
     border-radius: 6px;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 2%;
     width: 25%;
+    height: fit-content;
 }
 
 .create-form {
