@@ -26,6 +26,9 @@ export class CreateComponent {
   }
 
   async addSong() {
+    // let token = localStorage.getItem('token');
+    // let value = this.form.value;
+    // value.token = token;
     // console.log(this.form.value);
     this.songService.addSong(this.form.value).subscribe({
       next: () => {

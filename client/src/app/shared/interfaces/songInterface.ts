@@ -9,5 +9,5 @@ export interface ISong {
     songImage: string,
     _id: string,
     owner: IUser,
-    addedBy: IUser[]
+    // addedBy: IUser[]
 }
