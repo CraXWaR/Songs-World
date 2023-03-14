@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SongService } from 'src/app/services/song.service';
 import { errorHandler } from 'src/app/shared/errorHandler';
@@ -15,7 +15,13 @@ export class CreateComponent {
   errors: string | undefined = undefined;
 
   constructor(private fb: FormBuilder, private songService: SongService, private router: Router) {
-    //TODO Form GROUP AND HTML
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      author: ['', [Validators.required]],
+      genre: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      songImage: ['', [Validators.required]]
+    })
   }
 
   async addSong() {

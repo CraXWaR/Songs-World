@@ -16,6 +16,7 @@ export class RegisterComponent {
   errors: string | undefined = undefined;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
+    //TODO VALIDATONS!
     this.form = this.fb.group({
       username: ['', [Validators.required]],
       email: ['', [Validators.required, emailValidator]],
@@ -25,7 +26,6 @@ export class RegisterComponent {
   }
   register() {
     // console.log(this.form.value);
-    
     this.userService.register(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);
