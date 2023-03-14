@@ -17,11 +17,11 @@ const router = require('express').Router();
 // });
 router.post('/', async (req, res) => {
     const data = req.body;
-
     try {
-        console.log(data);
         const userId = req?.user?._id;
-        const song = await addSong(data, userId);
+        // console.log(userId);
+        // console.log(data);
+        const song = await addSong(data, userId); 
         //TODO update songs added by users
         res.status(201).json(song);
     } catch (error) {

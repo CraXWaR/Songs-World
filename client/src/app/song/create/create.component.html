@@ -1,5 +1,5 @@
 <div class="create-container">
-    <form class="create-form">
+    <form [formGroup]="form" class="create-form" (ngSubmit)="addSong()">
         <div class="mb-3">
             <h2 class="mb-2">Add Song</h2>
             <p>Join the other Artists</p>
@@ -7,41 +7,41 @@
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-4" name="name" placeholder="Song name">
+                <input type="text" class="input mt-4" name="name" placeholder="Song name" formControlName="name">
                 <label for="name"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="author" placeholder="Song author">
+                <input type="text" class="input mt-2" name="author" placeholder="Song author" formControlName="author">
                 <label for="author"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="genre" placeholder="Song Genre">
+                <input type="text" class="input mt-2" name="genre" placeholder="Song Genre" formControlName="genre">
                 <label for="genre"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="number" class="input mt-2" name="year" placeholder="2003">
+                <input type="number" class="input mt-2" name="year" placeholder="2003" formControlName="year">
                 <label for="year"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <textarea name="description" class="input mt-2" placeholder="Song Description" cols="30" rows="5"></textarea>
+                <textarea name="description" class="input mt-2" name="description" placeholder="Song Description" cols="30" rows="5" formControlName="description"></textarea>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="songImage" placeholder="https://">
+                <input type="text" class="input mt-2" name="songImage" placeholder="https://" formControlName="songImage">
                 <label for="songImage"></label>
             </div>
         </div>

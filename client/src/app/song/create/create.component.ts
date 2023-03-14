@@ -20,11 +20,13 @@ export class CreateComponent {
       author: ['', [Validators.required]],
       genre: ['', [Validators.required]],
       year: ['', [Validators.required]],
+      description: ['', [Validators.minLength(10), Validators.maxLength(500)]],
       songImage: ['', [Validators.required]]
     })
   }
 
   async addSong() {
+    // console.log(this.form.value);
     this.songService.addSong(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/catalog']);

@@ -7,7 +7,8 @@ const addSong = async (song, id) => {
         song.owner = id;
         return await Song.create({ ...song })
     } catch (error) {
-        console.log(error);
+        console.log('hi');
+        // console.log(error);
         throw new Error(error);
     }
 }
