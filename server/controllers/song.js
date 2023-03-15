@@ -1,6 +1,6 @@
 const { addSong } = require('../services/song');
 const router = require('express').Router();
-// const jwtDecode = require('jwt-decode');
+const jwtDecode = require('jwt-decode');
 
 // router.get('/', (req, res) => {
 //     console.log(1234);
@@ -17,8 +17,11 @@ const router = require('express').Router();
 // });
 router.post('/', async (req, res) => {
     const data = req.body;
+    const token = jwtDecode(data.token);
+
     try {
-        const userId = req?.user?._id;
+        const userId = token._id;
+        // const userId = req?.user?._id;
         // console.log(userId);
         // console.log(data);
         const song = await addSong(data, userId); 
