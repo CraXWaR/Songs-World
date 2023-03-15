@@ -15,7 +15,7 @@ export class CreateComponent {
 
   constructor(private songService: SongService, private router: Router) { }
 
-  async addSong(form: NgForm) {
+  async onCreate(form: NgForm) {
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
