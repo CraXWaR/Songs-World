@@ -18,12 +18,12 @@ const jwtDecode = require('jwt-decode');
 router.post('/', async (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-
     try {
-        const userId = token._id;
         // const userId = req?.user?._id;
         // console.log(userId);
         // console.log(data);
+        const userId = token.id;
+        console.log(token.id);
         const song = await addSong(data, userId); 
         //TODO update songs added by users
         res.status(201).json(song);

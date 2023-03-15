@@ -11,6 +11,6 @@ export class SongService {
 
   addSong(data: {}) {
     return this.http.post(`${API_URL}/songs`, data);
-
+    
   }
 }

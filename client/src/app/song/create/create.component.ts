@@ -26,7 +26,7 @@ export class CreateComponent {
         this.errors = errorHandler(err?.error?.error);
       }
     })
-    console.log(value);
+    // console.log(value);
 
   }
 }
