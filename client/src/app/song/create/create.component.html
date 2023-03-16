@@ -1,5 +1,5 @@
 <div class="create-container">
-    <form [formGroup]="form" class="create-form" (ngSubmit)="onCreate()">
+    <form #form="ngForm" class="create-form" (ngSubmit)="onCreate(form)">
         <div class="mb-3">
             <h2 class="mb-2">Add Song</h2>
             <p>Join the other Artists</p>
@@ -7,41 +7,41 @@
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-4" name="name" placeholder="Song name" formControlName="name">
+                <input type="text" class="input mt-4" name="name" placeholder="Song name" ngModel #name="ngModel">
                 <label for="name"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="author" placeholder="Song author" formControlName="author">
+                <input type="text" class="input mt-2" name="author" placeholder="Song author" ngModel #author="ngModel">
                 <label for="author"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="genre" placeholder="Song Genre" formControlName="genre">
+                <input type="text" class="input mt-2" name="genre" placeholder="Song Genre" ngModel #genre="ngModel">
                 <label for="genre"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="number" class="input mt-2" name="year" placeholder="2003" formControlName="year">
+                <input type="number" class="input mt-2" name="year" placeholder="2003" ngModel #year="ngModel">
                 <label for="year"></label>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <textarea name="description" class="input mt-2" name="description" placeholder="Song Description" cols="30" rows="5" formControlName="description"></textarea>
+                <textarea name="description" class="input mt-2" name="description" placeholder="Song Description" cols="30" rows="5" ngModel #description="ngModel"></textarea>
             </div>
         </div>
 
         <div class="field mb-4">
             <div class="control input-float">
-                <input type="text" class="input mt-2" name="songImage" placeholder="https://" formControlName="songImage">
+                <input type="text" class="input mt-2" name="songImage" placeholder="https://" ngModel #songImage="ngModel">
                 <label for="songImage"></label>
             </div>
         </div>
