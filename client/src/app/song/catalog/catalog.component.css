@@ -30,10 +30,11 @@ body {
 
 a {
     width: fit-content;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 img {
@@ -55,5 +56,4 @@ b {
 .rounded-circle {
     width: 60px;
     height: 60px;
-    background-color: red;
 }
