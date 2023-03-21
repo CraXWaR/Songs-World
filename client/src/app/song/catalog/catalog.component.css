@@ -27,8 +27,8 @@ a:hover{
 }
 img{
     object-fit: contain;
-    width: 60px;
-    height: 60px;
+    width: 63px;
+    height: 63px;
     border-radius: 50%;
 }
 p.text-muted{
@@ -42,32 +42,4 @@ b{
     width: 60px;
     height: 60px;
     background-color: red;
-}
-.blue{
-    background-color: #bedcfa;
-    transform: rotateZ(90deg);
-}
-.pale-blue{
-    background-color: #eff8ff;
-}
-.pale-orange{
-    background-color: #ffe5b9;
-}
-.pale-purple{
-    background-color: #e8e8e8;
-}
-.pale-cyan{
-    background-color: #cffffe;
-}
-.pale-pink{
-    background-color: #ffe4e4;
-}
-.pale-pale{
-    background-color: #f4eeff;
-}
-.pale-green{
-    background-color: #a0ffe6;
-}
-.pale-pista{
-    background-color: #dbf6e9;
 }
