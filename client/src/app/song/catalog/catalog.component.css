@@ -27,9 +27,9 @@ a:hover{
 }
 img{
     object-fit: contain;
-    width: 35px;
-    height: 35px;
-    /* padding: 20px; */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 p.text-muted{
     margin: 0;
