@@ -19,7 +19,7 @@ export class CreateComponent {
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
-
+    
     this.songService.addSong(value).subscribe({
       next: () => this.router.navigate(['/catalog']),
       error: (err) => {
