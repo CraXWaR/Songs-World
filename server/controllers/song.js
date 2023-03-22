@@ -1,4 +1,4 @@
-const { addSong } = require('../services/song');
+const { addSong, getAllSongs } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 
@@ -31,5 +31,10 @@ router.post('/', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+router.get('/', async (req, res) => {
+    const songs = await getAllSongs();
+    res.status(200).json(songs);
+})
 
 module.exports = router;
