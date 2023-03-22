@@ -12,8 +12,13 @@ const addSong = async (song, id) => {
     }
 }
 
+const getAllSongs = async () => {
+    return await Song.find({});
+}
+
 //TODO more funcions for song CRUD operations
 
 module.exports = {
-    addSong
+    addSong,
+    getAllSongs
 }
