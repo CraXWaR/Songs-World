@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
     <div class="container bg-light rounded">
-        <div class="h2 font-weight-bold text-center py-3">Explore more</div>
+        <div class="h2 font-weight-bold text-center py-3"*ngIf="!isEmpty">Explore more</div>
         <div class="row" *ngIf="songs">
             <ng-container *ngFor="let song of songs">
                 <div class="col-lg-4 col-md-6 my-lg-0 my-3 p-2">
@@ -19,6 +19,9 @@
                     </div>
                 </div>
             </ng-container>
+        </div>
+        <div class="h2 font-weight-bold text-center py-5" *ngIf="isEmpty">
+            No Songs in Data Base
         </div>
     </div>
 </div>
