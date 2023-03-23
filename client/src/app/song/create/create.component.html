@@ -35,6 +35,13 @@
 
         <div class="field mb-4">
             <div class="control input-float">
+                <input type="number" class="input mt-2" name="price" placeholder="$20" ngModel #price="ngModel">
+                <label for="price"></label>
+            </div>
+        </div>
+
+        <div class="field mb-4">
+            <div class="control input-float">
                 <textarea name="description" class="input mt-2" name="description" placeholder="Song Description" cols="30" rows="5" ngModel #description="ngModel"></textarea>
             </div>
         </div>

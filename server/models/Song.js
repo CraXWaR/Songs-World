@@ -21,6 +21,10 @@ const songSchema = new mongoose.Schema({
         min: [1950, 'Song year should be newer than 1950\'s!'],
         max: [2023, 'Song cannot be from the future!']
     },
+    price: {
+        required: true,
+        type: Number
+    },
     description: {
         required: false,
         type: String,

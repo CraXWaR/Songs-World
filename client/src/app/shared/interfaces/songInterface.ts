@@ -7,6 +7,7 @@ export interface ISong {
     year: number,
     description: string,
     songImage: string,
+    price: number,
     _id: string,
     owner: IUser,
     // addedBy: IUser[]
