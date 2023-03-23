@@ -1,4 +1,4 @@
-const { addSong, getAllSongs } = require('../services/song');
+const { addSong, getAllSongs, getMostExpensiveSongs } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
         // console.log(userId);
         // console.log(data);
         const userId = token.id;
-        const song = await addSong(data, userId); 
+        const song = await addSong(data, userId);
         //TODO update songs added by users
         res.status(201).json(song);
     } catch (error) {
@@ -34,6 +34,11 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     const songs = await getAllSongs();
+    res.status(200).json(songs);
+});
+
+router.get('/most', async (req, res) => {
+    const songs = await getMostExpensiveSongs();
     res.status(200).json(songs);
 })
 
