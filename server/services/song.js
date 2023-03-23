@@ -16,9 +16,15 @@ const getAllSongs = async () => {
     return await Song.find({});
 }
 
+const getMostExpensiveSongs = async () => {
+    const songs = await Song.find({}).sort({ price: -1 }).limit(3);
+    return songs
+}
+
 //TODO more funcions for song CRUD operations
 
 module.exports = {
     addSong,
-    getAllSongs
+    getAllSongs,
+    getMostExpensiveSongs
 }
