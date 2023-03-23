@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} */
+
+body {
+    background-color: #f8f8f8;
+}
+
 .main-section {
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -9,18 +22,69 @@
     width: 100%;
 }
 
-.container {
+.home-container {
     width: 60%;
     margin-top: 200px;
 }
 
-h1 {
+.h1 {
     width: 50%;
     font-size: 3.5rem;
     font-weight: bold;
     font-style: italic;
 }
 
-p {
+.p {
     font-size: 1.5rem;
+}
+
+.container {
+    margin-top: 20px;
+    padding: 40px 20px;
+}
+
+.most-song {
+    margin-top: 22rem;
+}
+
+.box {
+    padding: 40px 30px;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    border-color: black;
+}
+
+.box:hover {
+    box-shadow: 2px 2px 10px #a5a5a5;
+    transform: scale(1.03);
+}
+
+a {
+    width: fit-content;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.img {
+    object-fit: contain;
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+}
+
+p.text-muted {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+b {
+    font-size: 1.12rem;
+}
+
+.rounded-circle {
+    width: 60px;
+    height: 60px;
 }
