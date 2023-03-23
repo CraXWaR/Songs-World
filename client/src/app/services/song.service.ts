@@ -19,4 +19,9 @@ export class SongService {
     return this.http.get<ISong[]>(`${API_URL}/songs`);
     
   }
+
+  getMostExpnesiveSongs() {
+    return this.http.get<ISong[]>(`${API_URL}/songs/most`);
+
+  }
 }
