@@ -23,7 +23,9 @@ const songSchema = new mongoose.Schema({
     },
     price: {
         required: true,
-        type: Number
+        type: Number,
+        min: [10, 'Song price should be at least 10 dolars!'],
+        max: [200, 'Song price shouldn\'t be more than 200 dolars!']
     },
     description: {
         required: false,
