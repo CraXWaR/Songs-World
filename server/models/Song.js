@@ -24,8 +24,8 @@ const songSchema = new mongoose.Schema({
     price: {
         required: true,
         type: Number,
-        min: [10, 'Song price should be at least 10 dolars!'],
-        max: [200, 'Song price shouldn\'t be more than 200 dolars!']
+        min: [10, 'Song should be more expensive than 10 dolars!'],
+        max: [200, 'Song shouldn\'t be more expensive than 200 dolars!']
     },
     description: {
         required: false,
@@ -41,12 +41,12 @@ const songSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User',
     },
-    // addedBy: [
-    //     {
-    //         type: mongoose.Types.ObjectId,
-    //         ref: 'User'
-    //     }
-    // ]
+    addedBy: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 });
 
 const song = new mongoose.model('Song', songSchema);

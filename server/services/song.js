@@ -21,10 +21,15 @@ const getMostExpensiveSongs = async () => {
     return songs
 }
 
+const getOneSong = async (id) => {
+    return await Song.findById(id).populate('owner addedBy');
+}
+
 //TODO more funcions for song CRUD operations
 
 module.exports = {
     addSong,
     getAllSongs,
-    getMostExpensiveSongs
+    getMostExpensiveSongs,
+    getOneSong
 }
