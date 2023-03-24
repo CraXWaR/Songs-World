@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -11,11 +10,10 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     HomeComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule,
+    CommonModule
   ],
   exports: [
     HeaderComponent,

@@ -5,7 +5,6 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +19,6 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
   ]
 })
 export class SongModule { }
