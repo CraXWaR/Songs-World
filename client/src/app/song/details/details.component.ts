@@ -20,7 +20,7 @@ export class DetailsComponent {
   }
 
   getSong() {
-    this.song = undefined;
+    // this.song = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
