@@ -25,7 +25,7 @@ export class DetailsComponent {
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
-        if (this.userService.user?._id == song.owner._id) {
+        if (this.userService.user?._id === song.owner._id) {
           this.isOwner = true;
         } else {
           this.isOwner = false;
@@ -34,7 +34,6 @@ export class DetailsComponent {
       error: (error) => {
         this.errors = errorHandler(error.error?.error);
         console.log(error);
-        
       }
     })
   }

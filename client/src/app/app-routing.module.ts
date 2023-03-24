@@ -5,6 +5,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './core/home/home.component';
 import { CatalogComponent } from './song/catalog/catalog.component';
 import { CreateComponent } from './song/create/create.component';
+import { DetailsComponent } from './song/details/details.component';
 import { ProfileComponent } from './song/profile/profile.component';
 
 const routes: Routes = [
@@ -49,6 +50,13 @@ const routes: Routes = [
     component: ProfileComponent,
     data: {
       title: 'Profile Page'
+    }
+  },
+  {
+    path: 'songs/:id',
+    component: DetailsComponent,
+    data: {
+      title: 'Details Page'
     }
   }
 ];
