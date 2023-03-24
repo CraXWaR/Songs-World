@@ -1,4 +1,4 @@
-const { addSong, getAllSongs, getMostExpensiveSongs } = require('../services/song');
+const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 
@@ -40,6 +40,21 @@ router.get('/', async (req, res) => {
 router.get('/most', async (req, res) => {
     const songs = await getMostExpensiveSongs();
     res.status(200).json(songs);
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        let id = req.params.id;
+        const song = await getOneSong(id);
+        if (song) {
+            res.status(200).json(song);
+        } else {
+            throw new Error('Invalid song ID!')
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({ error: error.message })
+    }
 })
 
 module.exports = router;
