@@ -7,10 +7,6 @@
     font-family: 'Poppins', sans-serif;
 } */
 
-body {
-    background-color: #f8f8f8;
-}
-
 .main-section {
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -39,12 +35,12 @@ body {
 }
 
 .container {
-    margin-top: 20px;
+    margin-top: 10rem;
     padding: 40px 20px;
 }
 
 .most-song {
-    margin-top: 22rem;
+    margin-top: 10rem;
 }
 
 .box {
