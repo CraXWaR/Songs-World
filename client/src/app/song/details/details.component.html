@@ -4,7 +4,7 @@
             <div class="project-info-box mt-0">
                 <h5>SONG DETAILS</h5>
                 <p class="mb-0">{{song?.description}}</p>
-            </div><!-- / project-info-box -->
+            </div><!-- / song-info-box -->
 
             <div class="project-info-box">
                 <p><b>Song name:</b> {{song?.name}}</p>
@@ -12,22 +12,21 @@
                 <p><b>Author:</b> {{song?.author}}</p>
                 <!-- <p><b>Tools:</b> Illustrator</p> -->
                 <p class="mb-0"><b>Price:</b> ${{song?.price}}</p>
-            </div><!-- / project-info-box -->
+            </div><!-- / song-info-box -->
 
             <div class="project-info-box mt-0 mb-0">
                 <button class="btn btn-outline-dark me-2">Buy Now</button>
                 <button class="btn btn-outline-dark me-2">Wish</button>
                 <button class="btn btn-outline-dark me-2">Edit</button>
                 <button class="btn btn-outline-dark me-2">Delete</button>
-            </div><!-- / project-info-box -->
+            </div><!-- / song-info-box -->
         </div><!-- / column -->
 
         <div class="col-md-7">
             <img src="{{song?.songImage}}" class="rounded">
-            <div class="project-info-box">
+            <div class="mt-4">
                 <p><b>Genre:</b> {{song?.genre}}</p>
-                <!-- <p><b>Skills:</b> Illustrator</p> -->
-            </div><!-- / project-info-box -->
+            </div><!-- / song-info-box -->
         </div><!-- / column -->
     </div>
 </div>
