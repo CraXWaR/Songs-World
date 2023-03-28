@@ -1,6 +1,7 @@
-const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong } = require('../services/song');
+const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
+const User = require('../models/User');
 
 // router.get('/', (req, res) => {
 //     console.log(1234);
@@ -55,6 +56,12 @@ router.get('/:id', async (req, res) => {
         console.log(error)
         res.status(400).json({ error: error.message })
     }
-})
+});
+
+router.delete('/:id', async (req, res) => {
+    //TODO check user
+    await deleteSong(req.params.id);
+    res.status(200).json('Song deleted!');
+});
 
 module.exports = router;

@@ -27,7 +27,7 @@ const getOneSong = async (id) => {
 
 const deleteSong = async (id) => {
     return await Song.findByIdAndDelete(id);
-    
+
 }
 //TODO more funcions for song CRUD operations
 
@@ -35,5 +35,6 @@ module.exports = {
     addSong,
     getAllSongs,
     getMostExpensiveSongs,
-    getOneSong
+    getOneSong,
+    deleteSong
 }
