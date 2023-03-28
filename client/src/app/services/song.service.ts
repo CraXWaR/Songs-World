@@ -29,4 +29,9 @@ export class SongService {
     return this.http.get<ISong>(`${API_URL}/songs/${id}`);
 
   }
+
+  deleteSong(id: string | undefined) {
+    return this.http.delete(`${API_URL}/songs/${id}`);
+    
+  }
 }
