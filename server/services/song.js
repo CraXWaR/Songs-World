@@ -25,6 +25,10 @@ const getOneSong = async (id) => {
     return await Song.findById(id).populate('owner addedBy');
 }
 
+const deleteSong = async (id) => {
+    return await Song.findByIdAndDelete(id);
+    
+}
 //TODO more funcions for song CRUD operations
 
 module.exports = {
