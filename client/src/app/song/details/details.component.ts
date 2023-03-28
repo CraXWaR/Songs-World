@@ -37,4 +37,17 @@ export class DetailsComponent {
       }
     })
   }
+
+  delete() {
+    //TODO validation
+    const id = this.song?._id;
+    this.songService.deleteSong(id).subscribe({
+      next: () => {
+        this.router.navigate(['/catalog']);
+      },
+      error: (err) => {
+        this.errors = errorHandler(err);
+      }
+    })
+  }
 }
