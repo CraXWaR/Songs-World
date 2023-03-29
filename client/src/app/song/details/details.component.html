@@ -1,32 +1,96 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="project-info-box mt-0">
-                <h5>SONG DETAILS</h5>
-                <p class="mb-0">{{song?.description}}</p>
-            </div><!-- / song-info-box -->
-
-            <div class="project-info-box">
-                <p><b>Song name:</b> {{song?.name}}</p>
-                <p><b>Date:</b> {{song?.year}}</p>
-                <p><b>Author:</b> {{song?.author}}</p>
-                <p><b>Genre:</b> {{song?.genre}}</p>
-                <p class="mb-0"><b>Price:</b> ${{song?.price}}</p>
-            </div><!-- / song-info-box -->
-
-            <div class="project-info-box mt-0 mb-0">
-                <button class="btn btn-outline-dark me-2">Buy Now</button>
-                <button class="btn btn-outline-dark me-2">Wish</button>
-                <button class="btn btn-outline-dark me-2">Edit</button>
-                <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
-            </div><!-- / song-info-box -->
-        </div><!-- / column -->
-
-        <div class="col-md-7">
-            <img src="{{song?.songImage}}" class="rounded">
-            <div class="mt-4">
-                <p><b>Genre:</b> {{song?.genre}}</p>
-            </div><!-- / song-info-box -->
-        </div><!-- / column -->
+<ng-container *ngIf="!editMode">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="project-info-box mt-0">
+                    <h5>SONG DETAILS</h5>
+                    <p class="mb-0">{{song?.description}}</p>
+                </div><!-- / song-info-box -->
+    
+                <div class="project-info-box">
+                    <p><b>Song name:</b> {{song?.name}}</p>
+                    <p><b>Date:</b> {{song?.year}}</p>
+                    <p><b>Author:</b> {{song?.author}}</p>
+                    <p><b>Genre:</b> {{song?.genre}}</p>
+                    <p class="mb-0"><b>Price:</b> ${{song?.price}}</p>
+                </div><!-- / song-info-box -->
+    
+                <div class="project-info-box mt-0 mb-0">
+                    <button class="btn btn-outline-dark me-2">Buy Now</button>
+                    <button class="btn btn-outline-dark me-2">Wish</button>
+                    <button (click)="onEdit()" class="btn btn-outline-dark me-2">Edit</button>
+                    <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
+                </div><!-- / song-info-box -->
+            </div><!-- / column -->
+    
+            <div class="col-md-7">
+                <img src="{{song?.songImage}}" class="rounded">
+                <div class="mt-4">
+                    <p><b>Genre:</b> {{song?.genre}}</p>
+                </div><!-- / song-info-box -->
+            </div><!-- / column -->
+        </div>
     </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="editMode">
+    <div class="edit-container">
+        <form class="edit-form">
+            <div class="mb-3">
+                <h2 class="mb-2">Edit Song</h2>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="text" class="input mt-4" name="name" placeholder="Song name">
+                    <label for="name"></label>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="text" class="input mt-2" name="author" placeholder="Song author">
+                    <label for="author"></label>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="text" class="input mt-2" name="genre" placeholder="Song Genre">
+                    <label for="genre"></label>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="number" class="input mt-2" name="year" placeholder="2003">
+                    <label for="year"></label>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="number" class="input mt-2" name="price" placeholder="$20">
+                    <label for="price"></label>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <textarea name="description" class="input mt-2" name="description" placeholder="Song Description" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+    
+            <div class="field mb-4">
+                <div class="control input-float">
+                    <input type="text" class="input mt-2" name="songImage" placeholder="https://">
+                    <label for="songImage"></label>
+                </div>
+            </div>
+    
+            <div>
+                <button class="btn-create mt-2 p-2">Edit Song</button>
+            </div>
+        </form>
+    </div>
+</ng-container>
