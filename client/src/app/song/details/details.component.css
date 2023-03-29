@@ -10,6 +10,13 @@
     border-radius: 5px;
 }
 
+.overflow-auto {
+    max-height: 150px;
+}
+.overflow-auto::-webkit-scrollbar {
+    display: none;
+  }
+
 .project-info-box p {
     margin-bottom: 15px;
     padding-bottom: 15px;
