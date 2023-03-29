@@ -14,6 +14,7 @@ export class DetailsComponent {
   song: ISong | undefined;
   isOwner: boolean = false;
   errors: Object | undefined;
+  editMode: boolean = false;
 
   constructor(private songService: SongService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getSong();
@@ -49,5 +50,9 @@ export class DetailsComponent {
         this.errors = errorHandler(err);
       }
     })
+  }
+
+  onEdit() {
+    this.editMode = true;
   }
 }
