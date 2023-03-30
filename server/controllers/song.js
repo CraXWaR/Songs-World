@@ -1,4 +1,4 @@
-const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong } = require('../services/song');
+const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong, editSong } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 const User = require('../models/User');
@@ -62,6 +62,24 @@ router.delete('/:id', async (req, res) => {
     //TODO check user
     await deleteSong(req.params.id);
     res.status(200).json('Song deleted!');
+});
+
+router.put('/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    const song = await getOneSong(id);
+
+    try {
+        if (req?.user._id == song.owner._id) {
+            await editSong(id, data);
+            const updatedSong = await getOneSong(id);
+            res.status(200).json(updatedSong);
+        } else {
+            throw new Error('You are not the owner!');
+        }
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
 });
 
 module.exports = router;
