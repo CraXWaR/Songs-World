@@ -12,12 +12,12 @@ export class SongService {
 
   addSong(data: {}) {
     return this.http.post(`${API_URL}/songs`, data);
-    
+
   }
 
   getAllSongs() {
     return this.http.get<ISong[]>(`${API_URL}/songs`);
-    
+
   }
 
   getMostExpnesiveSongs() {
@@ -32,10 +32,10 @@ export class SongService {
 
   deleteSong(id: string | undefined) {
     return this.http.delete(`${API_URL}/songs/${id}`);
-    
+
   }
 
-  updateSong(id: string | undefined, data: {}) {    
+  updateSong(id: string | undefined, data: {}) {
     return this.http.put<ISong>(`${API_URL}/songs/${id}`, data);
 
   }

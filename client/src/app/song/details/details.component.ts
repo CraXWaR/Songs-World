@@ -32,7 +32,7 @@ export class DetailsComponent {
         } else {
           this.isOwner = false;
         }
-      }, 
+      },
       error: (error) => {
         this.errors = errorHandler(error.error?.error);
         console.log(error);
@@ -55,18 +55,18 @@ export class DetailsComponent {
 
   onEdit(form: NgForm) {
     //TODO check if owner
-    
+
     const id = this.song?._id;
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
-    
+
     this.songService.updateSong(id, value).subscribe({
-      next:(song) => {
+      next: (song) => {
         this.song = song;
         this.editMode = false;
       },
-      error:(err) => {
+      error: (err) => {
         this.errors = errorHandler(err.error?.error);
       }
     });
