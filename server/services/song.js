@@ -29,6 +29,14 @@ const deleteSong = async (id) => {
     return await Song.findByIdAndDelete(id);
 
 }
+
+const editSong = async (id, data) => {
+    try {
+        return await Song.findByIdAndUpdate(id, {...data}, {runValidators: true});
+    } catch (error) {
+        throw new Error(error);
+    }
+}
 //TODO more funcions for song CRUD operations
 
 module.exports = {
