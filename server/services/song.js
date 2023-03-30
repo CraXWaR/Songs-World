@@ -44,5 +44,6 @@ module.exports = {
     getAllSongs,
     getMostExpensiveSongs,
     getOneSong,
-    deleteSong
+    deleteSong,
+    editSong
 }
