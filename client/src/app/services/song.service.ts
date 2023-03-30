@@ -34,4 +34,8 @@ export class SongService {
     return this.http.delete(`${API_URL}/songs/${id}`);
     
   }
+
+  updateSong(id: string | undefined, data: {}) {
+    return this.http.put<ISong>(`${API_URL}/songs/${id}`, data);
+  }
 }
