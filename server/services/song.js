@@ -32,7 +32,7 @@ const deleteSong = async (id) => {
 
 const editSong = async (id, data) => {
     try {
-        return await Song.findByIdAndUpdate(id, {...data}, {runValidators: true});
+        return await Song.findByIdAndUpdate(id, { ...data }, { runValidators: true });
     } catch (error) {
         throw new Error(error);
     }
