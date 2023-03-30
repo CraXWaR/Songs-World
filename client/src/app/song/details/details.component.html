@@ -18,7 +18,7 @@
                 <div class="project-info-box mt-0 mb-0">
                     <button class="btn btn-outline-dark me-2">Buy Now</button>
                     <button class="btn btn-outline-dark me-2">Wish</button>
-                    <button class="btn btn-outline-dark me-2">Edit</button>
+                    <button (click)="editMode = true" class="btn btn-outline-dark me-2">Edit</button>
                     <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
                 </div><!-- / song-info-box -->
             </div><!-- / column -->
@@ -35,55 +35,55 @@
 
 <ng-container *ngIf="editMode">
     <div class="edit-container">
-        <form class="edit-form">
+        <form #form="ngForm" class="edit-form" (ngSubmit)="onEdit(form)">
             <div class="mb-3">
                 <h2 class="mb-2">Edit Song</h2>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="name" value="{{song?.name}}">
+                    <input type="text" class="input mt-4" name="name" ngModel="{{song?.name}}" #name="ngModel">
                     <label for="name"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="author" value="{{song?.author}}">
+                    <input type="text" class="input mt-2" name="author" ngModel="{{song?.author}}" #author="ngModel">
                     <label for="author"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="genre" value="{{song?.genre}}">
+                    <input type="text" class="input mt-2" name="genre" ngModel="{{song?.genre}}" #genre="ngModel">
                     <label for="genre"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="year" value="{{song?.year}}">
+                    <input type="number" class="input mt-2" name="year" ngModel="{{song?.year}}" #year="ngModel">
                     <label for="year"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="price" value="{{song?.price}}">
+                    <input type="number" class="input mt-2" name="price" ngModel="{{song?.price}}" #price="ngModel">
                     <label for="price"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <textarea name="description" class="input mt-2" name="description" value="{{song?.description}}" cols="30" rows="5"></textarea>
+                    <textarea name="description" class="input mt-2" name="description" ngModel="{{song?.description}}" cols="30" rows="5" #description="ngModel"></textarea>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="songImage" value="{{song?.songImage}}">
+                    <input type="text" class="input mt-2" name="songImage" ngModel="{{song?.songImage}}" #songImage="ngModel">
                     <label for="songImage"></label>
                 </div>
             </div>

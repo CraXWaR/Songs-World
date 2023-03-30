@@ -56,9 +56,7 @@ export class DetailsComponent {
   onEdit(form: NgForm) {
     //TODO check if owner
 
-    // this.editMode = true;
     const id = this.song?._id;
-
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
