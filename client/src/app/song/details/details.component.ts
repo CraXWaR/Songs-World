@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SongService } from 'src/app/services/song.service';
 import { UserService } from 'src/app/services/user.service';
@@ -52,7 +53,24 @@ export class DetailsComponent {
     })
   }
 
-  onEdit() {
-    this.editMode = true;
+  onEdit(form: NgForm) {
+    //TODO check if owner
+
+    // this.editMode = true;
+    const id = this.song?._id;
+
+    let token = localStorage.getItem('token');
+    let value = form.value;
+    value.token = token;
+
+    this.songService.updateSong(id, value).subscribe({
+      next:(song) => {
+        this.song = song;
+        this.editMode = false;
+      },
+      error:(err) => {
+        this.errors = errorHandler(err.error?.error);
+      }
+    });
   }
 }
