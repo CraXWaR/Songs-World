@@ -68,9 +68,10 @@ router.put('/:id', async (req, res) => {
     const id = req.params.id;
     const data = req.body;
     const song = await getOneSong(id);
-
     try {
-        if (req?.user._id == song.owner._id) {
+        const token = jwtDecode(data.token);
+        const userId = token.id;
+        if (userId == song.owner._id) {
             await editSong(id, data);
             const updatedSong = await getOneSong(id);
             res.status(200).json(updatedSong);

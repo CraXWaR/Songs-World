@@ -35,7 +35,8 @@ export class SongService {
     
   }
 
-  updateSong(id: string | undefined, data: {}) {
+  updateSong(id: string | undefined, data: {}) {    
     return this.http.put<ISong>(`${API_URL}/songs/${id}`, data);
+
   }
 }

@@ -55,12 +55,12 @@ export class DetailsComponent {
 
   onEdit(form: NgForm) {
     //TODO check if owner
-
+    
     const id = this.song?._id;
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
-
+    
     this.songService.updateSong(id, value).subscribe({
       next:(song) => {
         this.song = song;
