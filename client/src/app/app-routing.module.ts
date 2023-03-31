@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './core/home/home.component';
-import { CatalogComponent } from './song/catalog/catalog.component';
-import { CreateComponent } from './song/create/create.component';
-import { DetailsComponent } from './song/details/details.component';
-import { ProfileComponent } from './song/profile/profile.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
+import { CreateComponent } from './pages/create/create.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
