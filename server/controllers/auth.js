@@ -43,6 +43,8 @@ router.delete('/logout', async (req, res) => {
     // let token = req.user.token;
     // await logout(token);
     // res.status(204).end();
+
+    //TODO ADD FUNCION TO GET USER INFO
 })
 
 module.exports = router;
