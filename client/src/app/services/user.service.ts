@@ -44,4 +44,6 @@ export class UserService {
   // getUsername(token: {}) {
   //   return this.http.get<IUser>(`${API_URL}/`, token);
   // }
+
+  //TODO ADD REQUEST FUNCION TO GET USER INFO
 }

@@ -8,3 +8,6 @@ import { Component } from '@angular/core';
 export class ProfileComponent {
 
 }
+
+
+//TODO GET USER INFO
