@@ -1,6 +1,7 @@
-const user = require('../models/User');
+// const user = require('../models/User');
 const { register, login, logout } = require('../services/user');
 const router = require('express').Router();
+const jwtDecode = require('jwt-decode');
 
 router.post('/register', async (req, res) => {
     const data = req.body;
@@ -46,10 +47,10 @@ router.delete('/logout', async (req, res) => {
     // res.status(204).end();
 });
 
-router.get('/user', async (req, res) => {
+router.post('/user', (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-    
+    console.log(token);
     try {
         const username = token.username;
         const email = token.email;
