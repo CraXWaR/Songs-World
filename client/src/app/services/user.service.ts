@@ -18,32 +18,47 @@ export class UserService {
       return true;
     } else {
       return false;
-    }
+    };
+
   }
+
   register(data: {}) {
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
         this.user = user;
         localStorage.setItem('token', this.user.accessToken);
       })
-    )
+    );
+
   }
+
   login(data: {}) {
     return this.http.post<IUser>(`${API_URL}/login`, data).pipe(
       tap((user) => {
         this.user = user;
         localStorage.setItem('token', this.user.accessToken);
       })
-    )
+    );
+    
   }
+
   logout() {
     localStorage.removeItem('token');
     this.user = null;
     return this.http.delete(`${API_URL}/logout`).subscribe();
+
   }
-  // getUsername(token: {}) {
-  //   return this.http.get<IUser>(`${API_URL}/`, token);
-  // }
+
+  getUserData() {
+    return this.http.get<IUser>(`${API_URL}/user`).pipe(
+      tap((user)=> {
+        if (user) {
+          this.user = user;
+        }
+      })
+    );
+
+  }
 
   //TODO ADD REQUEST FUNCION TO GET USER INFO
 }
