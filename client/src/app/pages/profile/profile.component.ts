@@ -15,15 +15,17 @@ export class ProfileComponent {
   }
 
   getUserInfo() {
-    this.user = undefined;
-    this.userService.getUserData().subscribe({
+    let token = localStorage.getItem('token');
+
+    this.userService.getUserData({ token }).subscribe({
       next: (user) => {
-        this.user = user;
-      }, 
+        this.user = user
+      },
       error: (err) => {
         console.log(err);
+
       }
-    })
+    });
   }
 }
 

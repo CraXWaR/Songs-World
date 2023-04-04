@@ -47,29 +47,21 @@ router.delete('/logout', async (req, res) => {
 });
 
 router.get('/user', async (req, res) => {
-    let cookie = req.user.cookie;
+    const data = req.body;
+    const token = jwtDecode(data.token);
+    
+    try {
+        const username = token.username;
+        const email = token.email;
+        // const fullName = token.fullName;
+        // const userInfo = token.userInfo;
 
-    if (cookie != 'none') {
-        let user = await user.findOne({token:cookie});
-
-        if (user) {
-            let userToReturn = {
-                _id: user._id,
-                username: user.username,
-                email: user.email,
-                songs: user.songs,
-                favouriteSongs: user.favouriteSongs,
-                avatar: user.avatar
-            };
-            if (user) {
-                res.status(200).json(userToReturn);
-            }
-        } else {
-            res.status(400).json({ error: 'Unvalid user!' });
-        }
-    } else {
+        res.status(200).json({ "username": username, "email": email });
         res.end();
+    } catch (error) {
+        res.status(400).json({ error: error.message });
     }
+
 })
 
 module.exports = router;

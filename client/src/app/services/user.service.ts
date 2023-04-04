@@ -49,16 +49,11 @@ export class UserService {
 
   }
 
-  getUserData() {
-    return this.http.get<IUser>(`${API_URL}/user`).pipe(
-      tap((user)=> {
-        if (user) {
-          this.user = user;
-        }
-      })
-    );
+  getUserData(token: {}) {
+    return this.http.get<IUser>(`${API_URL}/user`, token);
 
   }
 
   //TODO ADD REQUEST FUNCION TO GET USER INFO
+  // .pipe(tap((user)=> {if (user) {this.user = user;}}));
 }
