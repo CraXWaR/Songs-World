@@ -9,7 +9,7 @@ router.post('/register', async (req, res) => {
     try {
         const user = await register(data);
         // res.cookie('userId', user._id, { maxAge: 86400000 });
-        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true, sameSite: 'none' });
+        res.cookie("auth", user.accessToken, { secure: true, sameSite: 'none', maxAge: 86400000 });
         res.status(201).json(user);
     } catch (error) {
         console.log(error);
@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
     try {
         const user = await login(email, password);
         // res.cookie('userId', user._id, { maxAge: 86400000 });
-        res.cookie("auth", user.accessToken, { httpOnly: true, sameSite: 'none', secure: true });
+        res.cookie("auth", user.accessToken, { sameSite: 'none', secure: true, maxAge: 86400000 });
         res.status(201).json(user);
     } catch (error) {
         console.log(error);
@@ -52,10 +52,9 @@ router.delete('/logout', async (req, res) => {
 });
 
 router.post('/user', (req, res) => {
-    console.log(req.user.cookie);
     const data = req.body;
     const token = jwtDecode(data.token);
-    // console.log(token);
+    console.log(token);
     try {
         const username = token.username;
         const email = token.email;

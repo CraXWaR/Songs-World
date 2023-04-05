@@ -15,18 +15,18 @@ const validateToken = (token) => {
 
 const createAccessToken = (user) => {
     const payload = {
-        id: user._id,
+        _id: user._id,
         username: user.username,
-        email: user._email
-    }
+        email: user.email
+    };
 
     const accessToken = jwt.sign(payload, server.SECRET_KEY);
 
     return {
-        id: user._id,
         username: user.username,
         email: user.email,
-        accessToken
+        accessToken,
+        id: user._id
     };
 
 }

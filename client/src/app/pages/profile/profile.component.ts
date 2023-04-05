@@ -17,7 +17,7 @@ export class ProfileComponent {
   getUserInfo() {
     let token = localStorage.getItem('token');
     
-    this.userService.getUserData().subscribe({
+    this.userService.getUserData({ token }).subscribe({
       next: (user) => {
         this.user = user
       },
