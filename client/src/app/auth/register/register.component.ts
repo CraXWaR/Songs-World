@@ -19,7 +19,9 @@ export class RegisterComponent {
     //TODO VALIDATONS!
     this.form = this.fb.group({
       username: ['', [Validators.required]],
+      city: ['', [Validators.required]],
       email: ['', [Validators.required, emailValidator]],
+      personalInfo: [''],
       password: ['', [Validators.required]],
       rePassword: ['', [Validators.required, passwordValidator]]
     });
