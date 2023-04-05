@@ -66,6 +66,10 @@ img {
     padding: 5px;
 }
 
+.input::placeholder {
+    color: lightgrey;
+}
+
 .btn-edit {
     width: 100%;
     color: #fff;
