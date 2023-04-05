@@ -54,7 +54,7 @@ router.delete('/logout', async (req, res) => {
 router.post('/user', (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-    console.log(token);
+    
     try {
         const username = token.username;
         // const email = token.email;

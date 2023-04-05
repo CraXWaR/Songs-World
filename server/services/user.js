@@ -77,8 +77,6 @@ const logout = async (token) => {
     await blacklisted.create({ token });
 }
 
-//TODO ADD FUNCION TO GET USER INFO
-
 module.exports = {
     validateToken,
     createAccessToken,
