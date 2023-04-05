@@ -17,14 +17,20 @@ const createAccessToken = (user) => {
     const payload = {
         _id: user._id,
         username: user.username,
-        email: user.email
+        city: user.city,
+        email: user.email,
+        personalInfo: user.personalInfo,
+        avatar: user.avatar
     };
 
     const accessToken = jwt.sign(payload, server.SECRET_KEY);
 
     return {
         username: user.username,
+        city: user.city,
         email: user.email,
+        personalInfo: user.personalInfo,
+        avatar: user.avatar,
         accessToken,
         id: user._id
     };

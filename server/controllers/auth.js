@@ -58,8 +58,8 @@ router.post('/user', (req, res) => {
     try {
         const username = token.username;
         const email = token.email;
-        // const fullName = token.fullName;
-        // const userInfo = token.userInfo;
+        // const city = token.city;
+        // const personalInfo = token.personalInfo;
 
         res.status(200).json({ "username": username, "email": email });
         res.end();
