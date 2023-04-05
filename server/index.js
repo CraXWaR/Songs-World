@@ -3,6 +3,7 @@ const cors = require('./config/cors');
 const database = require('./config/database');
 const routes = require('./routes');
 const { authMiddleware } = require('./middlewares/auth');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 //TODO cookie/session 
@@ -11,6 +12,7 @@ serverStart()
 async function serverStart() {
     try {
         app.use(cors());
+        app.use(cookieParser());
         app.use(express.json());
         app.use(authMiddleware);
         app.use(routes);

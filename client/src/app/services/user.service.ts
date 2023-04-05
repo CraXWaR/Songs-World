@@ -49,10 +49,8 @@ export class UserService {
 
   }
 
-  getUserData(token: {}) {
-    console.log(token);
-    
-    return this.http.post<IUser>(`${API_URL}/user`, token);
+  getUserData() {
+    return this.http.get<IUser>(`${API_URL}/user`);
 
   }
 
