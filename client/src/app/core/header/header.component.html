@@ -32,7 +32,7 @@
             <ng-container *ngIf="isLogged">
                 <div class="text-end">
                     <div class="welcome-message">
-                        <span class="nav-link px-3 text-white">Welcome Back!</span>
+                        <span class="nav-link px-3 text-white">Hello, {{user?.username}}</span>
                     </div>
                     <a (click)="logout()" class="btn btn-outline-light me-2">Logout</a>
                 </div>

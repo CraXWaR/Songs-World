@@ -21,26 +21,26 @@ export class HeaderComponent {
   }
 
   constructor(private userService: UserService, private router: Router) {
-    // this.getUserUsername();
+    this.getUserUsername();
   }
 
   logout() {
     this.userService.logout();
     this.router.navigate(['/'])
   }
-  // getUserUsername() {
-  //   let token = localStorage.getItem('token');
+  getUserUsername() {
+    let token = localStorage.getItem('token');
 
-  //   this.userService.getUsername({ token }).subscribe({
-  //     next: (user) => {
-  //       this.user = user
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
+    this.userService.getUserData({ token }).subscribe({
+      next: (user) => {
+        this.user = user
+      },
+      error: (err) => {
+        console.log(err);
 
-  //     }
-  //   });
-  // }
+      }
+    });
+  }
 }
 
 
