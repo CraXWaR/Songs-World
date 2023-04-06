@@ -5,6 +5,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -13,7 +14,8 @@ import { DetailsComponent } from './details/details.component';
     CatalogComponent,
     ProfileComponent,
     CreateComponent,
-    DetailsComponent
+    DetailsComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
