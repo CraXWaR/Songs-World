@@ -7,6 +7,7 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { CreateComponent } from './pages/create/create.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,13 @@ const routes: Routes = [
     component: DetailsComponent,
     data: {
       title: 'Details Page'
+    }
+  },
+  {
+    path: '**',
+    component: ErrorComponent,
+    data: {
+      title: '404 Not Found'
     }
   }
 ];
