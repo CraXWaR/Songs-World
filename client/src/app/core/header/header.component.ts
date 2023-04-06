@@ -9,6 +9,7 @@ import { IUser } from 'src/app/shared/interfaces/userInterface';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  [x: string]: any;
 
   user: IUser | undefined;
 

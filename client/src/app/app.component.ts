@@ -9,6 +9,7 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'client';
 
   constructor(private router: Router, private pageTitle: Title) {

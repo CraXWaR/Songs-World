@@ -20,9 +20,8 @@ export class LoginComponent {
       password: ['', [Validators.required]]
     });
   }
+
   login() {
-    // console.log(this.form.value);
-    
     this.userService.login(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);
@@ -32,5 +31,6 @@ export class LoginComponent {
         this.errors = errorHandler(err.error?.error);
       }
     })
+    
   }
 }
