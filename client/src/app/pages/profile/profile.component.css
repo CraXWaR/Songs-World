@@ -22,7 +22,7 @@
 
 /* edit css */
 
-.register-container {
+.edit-container {
     box-shadow: 0 0 28px #0000000d;
     background-color: #fff;
     border-radius: 6px;
@@ -31,7 +31,7 @@
     width: 25%;
 }
 
-.register-form {
+.edit-form {
     padding: 3rem;
 }
 
@@ -55,7 +55,7 @@
     box-shadow: 0, 0, 0, 0.125em rgb(0, 129, 184);
 } */
 
-.btn-register {
+.btn-edit {
     width: 100%;
     color: #fff;
     background-color: #1F1F1F;
