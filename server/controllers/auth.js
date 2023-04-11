@@ -57,12 +57,12 @@ router.post('/user', (req, res) => {
     
     try {
         const username = token.username;
-        // const email = token.email;
+        const email = token.email;
         const city = token.city;
         const personalInfo = token.personalInfo;
         const avatar = token.avatar;
 
-        res.status(200).json({ "username": username, "city": city, "personalInfo": personalInfo, "avatar": avatar });
+        res.status(200).json({ "username": username, "email": email, "city": city, "personalInfo": personalInfo, "avatar": avatar });
         res.end();
     } catch (error) {
         res.status(400).json({ error: error.message });
