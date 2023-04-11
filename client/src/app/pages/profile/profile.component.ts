@@ -9,6 +9,7 @@ import { IUser } from 'src/app/shared/interfaces/userInterface';
 })
 export class ProfileComponent {
   user: IUser | undefined;
+  onEdit: boolean = false;
 
   constructor(private userService: UserService) {
     this.getUserInfo();
