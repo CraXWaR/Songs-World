@@ -211,56 +211,41 @@
         <form class="edit-form">
             <div class="mb-3">
                 <h2 class="mb-2">Profile edit</h2>
-            </div>F
-    
+            </div>
+
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="username" formControlName="username" value="{{user?.username}}">
+                    <input type="text" class="input mt-4" name="username" value="{{user?.username}}">
                     <label for="username"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="city" formControlName="city" value="{{user?.city}}">
+                    <input type="text" class="input mt-4" name="city" value="{{user?.city}}">
                     <label for="city"></label>
                 </div>
             </div>
     
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input" name="email" formControlName="email" value="{{user?.email}}">
+                    <input type="text" class="input" name="email" value="{{user?.email}}">
                     <label for="email"></label>
                 </div>
             </div>
     
             <div class="field mb-4">
                 <div class="control input-float">
-                    <textarea class="input mt-4" type="text" value="{{user?.personalInfo}}"
-                        name="personalInfo" formControlName="personalInfo">
+                    <textarea class="input mt-4" type="text"
+                        name="personalInfo" value="{{user?.personalInfo}}">
                     </textarea>
                     <label for="personalInfo"></label>
                 </div>
             </div>
     
-            <div class="field mb-4">
-                <div class="control input-float">
-                    <input type="password" class="input" name="password" formControlName="password" value="Password">
-                    <label for="password"></label>
-                </div>
-            </div>
-    
-            <div class="field mb-4">
-                <div class="control input-float">
-                    <input type="password" class="input" name="rePassword" formControlName="rePassword"
-                        value="Repeat Password">
-                    <label for="repeat-password"></label>
-                </div>
-            </div>
-    
             <div class="field mb-5">
                 <div class="control input-float">
-                    <input type="text" class="input" name="avatar" formControlName="avatar" value="{{user?.avatar}}">
+                    <input type="text" class="input" name="avatar" value="{{user?.avatar}}">
                     <label for="avatar"></label>
                 </div>
             </div>
