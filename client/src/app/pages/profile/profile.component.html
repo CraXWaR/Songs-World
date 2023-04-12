@@ -216,21 +216,21 @@
             <div class="field mb-1">
                 <div class="control input-float">
                     <input type="text" class="input mt-4" name="username" formControlName="username"
-                        value="{{user?.username}}">
+                        ngModel="{{user?.username}}">
                     <label for="username"></label>
                 </div>
             </div>
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="city" formControlName="city" value="{{user?.city}}">
+                    <input type="text" class="input mt-4" name="city" formControlName="city" ngModel="{{user?.city}}">
                     <label for="city"></label>
                 </div>
             </div>
 
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input" name="email" formControlName="email" value="{{user?.email}}">
+                    <input type="text" class="input" name="email" formControlName="email" ngModel="{{user?.email}}">
                     <label for="email"></label>
                 </div>
             </div>
@@ -238,7 +238,7 @@
             <div class="field mb-4">
                 <div class="control input-float">
                     <textarea class="input mt-4" type="text" name="personalInfo" formControlName="personalInfo"
-                        value="{{user?.personalInfo}}">
+                        ngModel="{{user?.personalInfo}}">
                     </textarea>
                     <label for="personalInfo"></label>
                 </div>
@@ -246,7 +246,7 @@
 
             <div class="field mb-5">
                 <div class="control input-float">
-                    <input type="text" class="input" name="avatar" formControlName="avatar" value="{{user?.avatar}}">
+                    <input type="text" class="input" name="avatar" formControlName="avatar" ngModel="{{user?.avatar}}">
                     <label for="avatar"></label>
                 </div>
             </div>
