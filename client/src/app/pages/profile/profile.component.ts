@@ -47,7 +47,8 @@ export class ProfileComponent {
     let token = localStorage.getItem('token');
     let value = this.form.value;
     value.token = token;
-
+    console.log(value);
+    
     this.userService.editUser(id, value).subscribe({
       next: (user) => {
         this.user = user;

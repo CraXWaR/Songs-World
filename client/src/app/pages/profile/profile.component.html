@@ -9,8 +9,8 @@
                             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                                 <img src="{{user?.avatar}}" alt="Generic placeholder image"
                                     class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
-                                <button (click)="onEdit = true" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                                    style="z-index: 1;">
+                                <button (click)="onEdit = true" type="button" class="btn btn-outline-dark"
+                                    data-mdb-ripple-color="dark" style="z-index: 1;">
                                     Edit profile
                                 </button>
                             </div>
@@ -208,48 +208,49 @@
 
 <ng-container *ngIf="onEdit">
     <div class="edit-container">
-        <form class="edit-form">
+        <form [formGroup]="form" class="edit-form" (ngSubmit)="onEditUser()">
             <div class="mb-3">
                 <h2 class="mb-2">Profile edit</h2>
             </div>
 
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="username" value="{{user?.username}}">
+                    <input type="text" class="input mt-4" name="username" formControlName="username"
+                        value="{{user?.username}}">
                     <label for="username"></label>
                 </div>
             </div>
-    
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="city" value="{{user?.city}}">
+                    <input type="text" class="input mt-4" name="city" formControlName="city" value="{{user?.city}}">
                     <label for="city"></label>
                 </div>
             </div>
-    
+
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input" name="email" value="{{user?.email}}">
+                    <input type="text" class="input" name="email" formControlName="email" value="{{user?.email}}">
                     <label for="email"></label>
                 </div>
             </div>
-    
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <textarea class="input mt-4" type="text"
-                        name="personalInfo" value="{{user?.personalInfo}}">
+                    <textarea class="input mt-4" type="text" name="personalInfo" formControlName="personalInfo"
+                        value="{{user?.personalInfo}}">
                     </textarea>
                     <label for="personalInfo"></label>
                 </div>
             </div>
-    
+
             <div class="field mb-5">
                 <div class="control input-float">
-                    <input type="text" class="input" name="avatar" value="{{user?.avatar}}">
+                    <input type="text" class="input" name="avatar" formControlName="avatar" value="{{user?.avatar}}">
                     <label for="avatar"></label>
                 </div>
             </div>
-    
+
             <div>
                 <button class="btn-edit mt-2 p-2">Edit</button>
             </div>
