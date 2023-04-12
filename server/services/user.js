@@ -73,6 +73,14 @@ const login = async (email, password) => {
     }
 }
 
+const updateUser = async (id, data) => {
+    try {
+        return await User.findByIdAndUpdate(id, { ...data }, { runValidators: true });
+    } catch (error) {
+        return error;
+    }
+}
+
 const logout = async (token) => {
     await blacklisted.create({ token });
 }
@@ -82,6 +90,7 @@ module.exports = {
     createAccessToken,
     register,
     login,
-    logout
+    updateUser,
+    logout,
 
 }
