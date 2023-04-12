@@ -54,6 +54,11 @@ export class UserService {
 
   }
 
+  editUser(id: string | undefined, data: {}) {
+    return this.http.put<IUser>(`${API_URL}/user/${id}`, data);
+    
+  }
+
   //TODO ADD REQUEST FUNCION TO GET USER INFO
   // .pipe(tap((user)=> {if (user) {this.user = user;}}));
 }
