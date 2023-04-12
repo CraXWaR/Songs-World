@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { register, login, logout } = require('../services/user');
+const { register, login, logout, updateUser } = require('../services/user');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 
@@ -68,6 +68,20 @@ router.post('/user', (req, res) => {
         res.status(400).json({ error: error.message });
     }
 
-})
+});
+
+router.put('/user/:id', async (req, res) => {
+    const data = req.body;
+
+    try {
+        const token = jwtDecode(data.token);
+        const userId = token._id;
+        await updateUser(userId, data);
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
+});
 
 module.exports = router;
