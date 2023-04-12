@@ -8,6 +8,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await register(data);
+        //TODO COOKIES
         // res.cookie('userId', user._id, { maxAge: 86400000 });
         res.cookie("auth", user.accessToken, { secure: true, sameSite: 'none', maxAge: 86400000 });
         res.status(201).json(user);
@@ -24,6 +25,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await login(email, password);
+        //TODO COOKIES
         // res.cookie('userId', user._id, { maxAge: 86400000 });
         res.cookie("auth", user.accessToken, { sameSite: 'none', secure: true, maxAge: 86400000 });
         res.status(201).json(user);
@@ -54,6 +56,10 @@ router.delete('/logout', async (req, res) => {
 router.post('/user', (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
+
+    if (!data) {
+        return;
+    }
     
     try {
         const username = token.username;
