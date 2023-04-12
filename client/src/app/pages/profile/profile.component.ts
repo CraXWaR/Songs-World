@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { errorHandler } from 'src/app/shared/errorHandler';
 import { IUser } from 'src/app/shared/interfaces/userInterface';
@@ -16,7 +17,9 @@ export class ProfileComponent {
   form!: FormGroup;
   errors: string | undefined = undefined;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+
+    this.getUserInfo();
 
     this.form = this.fb.group({
       username: ['', [Validators.required]],
@@ -26,7 +29,6 @@ export class ProfileComponent {
       avatar: ['', [Validators.required]]
     });
 
-    this.getUserInfo();
   }
 
   getUserInfo() {
@@ -48,11 +50,11 @@ export class ProfileComponent {
     let value = this.form.value;
     value.token = token;
     console.log(value);
-    
+
     this.userService.editUser(id, value).subscribe({
-      next: (user) => {
-        this.user = user;
-        this.onEdit = false;
+      next: () => {
+        this.userService.logout();
+        this.router.navigate(['login']);
       },
       error: (err) => {
         this.errors = errorHandler(err.error?.error);
