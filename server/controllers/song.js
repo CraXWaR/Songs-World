@@ -9,8 +9,8 @@ router.post('/', async (req, res) => {
     try {
         // const userId = req?.user?._id;
         // console.log(userId);
-        // console.log(data);
-        const userId = token.id;
+        // console.log(token._id);
+        const userId = token._id;
         const song = await addSong(data, userId);
         //TODO update songs added by users
         res.status(201).json(song);
@@ -57,8 +57,8 @@ router.put('/:id', async (req, res) => {
     const song = await getOneSong(id);
     try {
         const token = jwtDecode(data.token);
-        const userId = token.id;
-        if (userId == song.owner._id) {
+        const userId = token._id;
+        if (userId == song.owner.id) {
             await editSong(id, data);
             const updatedSong = await getOneSong(id);
             res.status(200).json(updatedSong);

@@ -63,7 +63,7 @@ export class DetailsComponent {
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
-
+    
     this.songService.updateSong(id, value).subscribe({
       next: (song) => {
         this.song = song;
