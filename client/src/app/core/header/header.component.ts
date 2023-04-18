@@ -30,7 +30,7 @@ export class HeaderComponent {
   }
   getUserUsername() {
     let token = localStorage.getItem('token');
-    console.log(token);
+    console.log();
     
     this.userService.getUserData({ token }).subscribe({
       next: (user) => {

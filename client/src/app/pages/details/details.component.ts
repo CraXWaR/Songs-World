@@ -28,14 +28,13 @@ export class DetailsComponent {
   decodeToken(token: any) {
     if (token) {
       const decodedToken = jwt_decode(token);
-    return decodedToken;
+      return decodedToken;
     }
     return;
   }
 
   getSong() {
     this.song = undefined;
-    // let token = localStorage.getItem('token')
     const decoded = this.decodeToken(this.token)  as { _id: string };
     let userId = decoded._id
 
@@ -43,7 +42,7 @@ export class DetailsComponent {
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
-        console.log(this.userService.user);
+        // console.log(this.userService.user);
         //TODO fix userId
         
         if (userId == song?.owner._id) {
