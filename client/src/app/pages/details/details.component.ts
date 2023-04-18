@@ -27,6 +27,7 @@ export class DetailsComponent {
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
+        //TODO fix userId
         console.log(this.userService.user?._id);
         
         if (this.userService.user?._id === song.owner._id) {
