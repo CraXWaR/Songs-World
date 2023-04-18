@@ -32,7 +32,7 @@ const createAccessToken = (user) => {
         personalInfo: user.personalInfo,
         avatar: user.avatar,
         accessToken,
-        id: user._id
+        _id: user._id
     };
 
 }

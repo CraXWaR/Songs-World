@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IUser } from '../shared/interfaces/userInterface';
 import { tap } from 'rxjs';
 
+import jwt_decode from 'jwt-decode';
 const API_URL = 'http://localhost:3000';
 
 @Injectable({
@@ -20,6 +21,11 @@ export class UserService {
     } else {
       return false;
     }
+  }
+
+  decodeToken(token: string) {
+    const decodedToken = jwt_decode(token);
+    return decodedToken;
   }
 
   register(data: {}) {

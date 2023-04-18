@@ -1,5 +1,4 @@
-const User = require('../models/User');
-const { register, login, logout, updateUser } = require('../services/user');
+const { register, login, updateUser } = require('../services/user');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 

@@ -6,6 +6,8 @@ import { UserService } from 'src/app/services/user.service';
 import { errorHandler } from 'src/app/shared/errorHandler';
 import { ISong } from 'src/app/shared/interfaces/songInterface';
 
+import jwt_decode from 'jwt-decode';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -23,8 +25,20 @@ export class DetailsComponent {
     this.getSong();
   }
 
+  decodeToken(token: any) {
+    if (token) {
+      const decodedToken = jwt_decode(token);
+    return decodedToken;
+    }
+    return;
+  }
+
   getSong() {
     this.song = undefined;
+    // let token = localStorage.getItem('token')
+    const decoded = this.decodeToken(this.token)  as { _id: string };
+    let userId = decoded._id
+
     const id = this.activatedRoute.snapshot.params['id'];
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
@@ -32,7 +46,7 @@ export class DetailsComponent {
         console.log(this.userService.user);
         //TODO fix userId
         
-        if (this.userService.user?._id == song?.owner._id) {
+        if (userId == song?.owner._id) {
           this.isOwner = true;
         } else {
           this.isOwner = false;
