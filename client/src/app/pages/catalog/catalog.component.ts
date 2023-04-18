@@ -15,6 +15,8 @@ export class CatalogComponent {
   constructor(private songService: SongService) {
     this.getAllSongs();
   }
+
+  //TODO add if no user to remove the details btn
   getAllSongs() {
     this.songs = undefined;
     this.songService.getAllSongs().subscribe({
