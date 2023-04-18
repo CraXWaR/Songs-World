@@ -11,6 +11,7 @@ const API_URL = 'http://localhost:3000';
 export class UserService {
   user: null | IUser | undefined;
   userInfo: null | Object = null;
+
   constructor(private http: HttpClient) { }
 
   get isLogged(): boolean {
@@ -18,8 +19,7 @@ export class UserService {
       return true;
     } else {
       return false;
-    };
-
+    }
   }
 
   register(data: {}) {
@@ -39,7 +39,7 @@ export class UserService {
         localStorage.setItem('token', this.user.accessToken);
       })
     );
-    
+
   }
 
   logout() {
@@ -56,7 +56,7 @@ export class UserService {
 
   editUser(id: string | undefined, data: {}) {
     return this.http.put<IUser>(`${API_URL}/user/${id}`, data);
-    
+
   }
 
   //TODO ADD REQUEST FUNCION TO GET USER INFO

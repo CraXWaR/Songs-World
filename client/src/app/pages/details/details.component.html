@@ -18,8 +18,10 @@
                 <div class="project-info-box mt-0 mb-0">
                     <button class="btn btn-outline-dark me-2">Buy Now</button>
                     <button class="btn btn-outline-dark me-2">Wish</button>
-                    <button (click)="editMode = true" class="btn btn-outline-dark me-2">Edit</button>
-                    <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
+                    <ng-container *ngIf="isOwner">
+                        <button (click)="editMode = true" class="btn btn-outline-dark me-2">Edit</button>
+                        <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
+                    </ng-container>
                 </div><!-- / song-info-box -->
             </div><!-- / column -->
 

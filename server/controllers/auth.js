@@ -57,9 +57,9 @@ router.post('/user', (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
 
-    if (!data) {
-        return;
-    }
+    // if (!data) {
+    //     return;
+    // }
     
     try {
         const username = token.username;

@@ -12,10 +12,12 @@ import { ISong } from 'src/app/shared/interfaces/songInterface';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
+  
   song: ISong | undefined;
   isOwner: boolean = false;
   errors: Object | undefined;
   editMode: boolean = false;
+  token: string | null = localStorage.getItem('token');
 
   constructor(private songService: SongService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getSong();
@@ -27,10 +29,10 @@ export class DetailsComponent {
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
+        console.log(this.userService.user);
         //TODO fix userId
-        console.log(this.userService.user?._id);
         
-        if (this.userService.user?._id === song.owner._id) {
+        if (this.userService.user?._id == song?.owner._id) {
           this.isOwner = true;
         } else {
           this.isOwner = false;
@@ -44,7 +46,12 @@ export class DetailsComponent {
   }
 
   delete() {
-    //TODO validation
+    if (this.userService.user?._id != this.song?.owner._id || !this.token) {
+      console.log('hi');
+      
+      this.router.navigate(['**']);
+
+    }
     const id = this.song?._id;
     this.songService.deleteSong(id).subscribe({
       next: () => {
