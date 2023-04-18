@@ -22,11 +22,13 @@ export class DetailsComponent {
   }
 
   getSong() {
-    // this.song = undefined;
+    this.song = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
+        console.log(this.userService.user?._id);
+        
         if (this.userService.user?._id === song.owner._id) {
           this.isOwner = true;
         } else {
