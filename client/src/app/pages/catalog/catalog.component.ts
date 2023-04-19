@@ -11,6 +11,8 @@ export class CatalogComponent {
   songs: ISong[] | undefined;
   songsLength: any;
   isEmpty: boolean = false;
+  ifUser: boolean = true;
+  token: string | null = localStorage.getItem('token');
 
   constructor(private songService: SongService) {
     this.getAllSongs();
@@ -18,6 +20,10 @@ export class CatalogComponent {
 
   //TODO add if no user to remove the details btn
   getAllSongs() {
+    if (!this.token) {
+      this.ifUser = false;
+    }
+      
     this.songs = undefined;
     this.songService.getAllSongs().subscribe({
       next: (songs) => {
