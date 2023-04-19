@@ -11,6 +11,7 @@ import { IUser } from 'src/app/shared/interfaces/userInterface';
 export class HeaderComponent {
 
   user: IUser | undefined;
+  token: string | null = localStorage.getItem('token');
 
   get isLogged(): boolean {
     if (localStorage.getItem('token')) {
@@ -21,20 +22,21 @@ export class HeaderComponent {
   }
 
   constructor(private userService: UserService, private router: Router) {
-    this.getUserUsername();
+    if (this.token) {
+      this.getUserUsername();
+    }
   }
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
   getUserUsername() {
     let token = localStorage.getItem('token');
-    console.log();
     
     this.userService.getUserData({ token }).subscribe({
       next: (user) => {
-        this.user = user
+        this.user = user;
       },
       error: (err) => {
         console.log(err);
