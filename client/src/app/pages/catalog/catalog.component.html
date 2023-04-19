@@ -17,6 +17,11 @@
                                         <p class="text-muted">Details</p>
                                     </a>
                                 </ng-container>
+                                <ng-container *ngIf="!ifUser">
+                                    <a href="/login">
+                                        <p class="text-muted">Sign in to see song details</p>
+                                    </a>
+                                </ng-container>
                             </div>
                         </div>
                     </div>
