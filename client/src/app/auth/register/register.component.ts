@@ -21,7 +21,7 @@ export class RegisterComponent {
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required, emailValidator]],
-      personalInfo: [''],
+      personalInfo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(7000)]],
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(12)]],
       rePassword: ['', [Validators.required, passwordValidator]],
       avatar: ['', [Validators.required]]
