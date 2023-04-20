@@ -22,10 +22,10 @@ export class ProfileComponent {
     this.getUserInfo();
 
     this.form = this.fb.group({
-      username: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required, emailValidator]],
-      personalInfo: [''],
+      personalInfo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(7000)]],
       avatar: ['', [Validators.required]]
     });
 
