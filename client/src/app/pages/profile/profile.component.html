@@ -216,40 +216,72 @@
             <div class="field mb-1">
                 <div class="control input-float">
                     <input type="text" class="input mt-4" name="username" formControlName="username"
-                        ngModel="{{user?.username}}">
+                        ngModel="{{user?.username}}" required minlength="4" maxlength="10">
                     <label for="username"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="form.get('username')?.touched">
+                <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
+                <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['minlength']">Username should have 3 characters!</div>
+                <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['maxlength']">Username shouldn't have more than 10!
+                    characters!</div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="city" formControlName="city" ngModel="{{user?.city}}">
+                    <input type="text" class="input mt-4" name="city" formControlName="city" ngModel="{{user?.city}}" required minlength="3" maxlength="20">
                     <label for="city"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="form.get('city')?.touched">
+                <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['required']">City is required!</div>
+                <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['minlength']">City should have 3 characters!</div>
+                <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['maxlength']">City shouldn't have more than 20!
+                    characters!</div>
+            </ng-container>
+
             <div class="field mb-1">
                 <div class="control input-float">
-                    <input type="text" class="input" name="email" formControlName="email" ngModel="{{user?.email}}">
+                    <input type="text" class="input" name="email" formControlName="email" ngModel="{{user?.email}}" required pattern="^[a-zA-Z0-9\.-]{4,}@[a-z]+\.[a-z]+$">
                     <label for="email"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="form.get('email')?.touched">
+                <div class="form-label text-danger error-fix" *ngIf="form.get('email')?.errors?.['required']">Email is required!</div>
+                <div class="form-label text-danger error-fix" *ngIf="form.get('email')?.errors?.['invalidEmail']">Email should be valid!</div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
                     <textarea class="input mt-4" type="text" name="personalInfo" formControlName="personalInfo"
-                        ngModel="{{user?.personalInfo}}">
+                        ngModel="{{user?.personalInfo}}" required minlength="10" maxlength="7000">
                     </textarea>
                     <label for="personalInfo"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="form.get('personalInfo')?.touched">
+                <div class="form-label text-danger error" *ngIf="form.get('personalInfo')?.errors?.['required']">Personal information is required!</div>
+                <div class="form-label text-danger error" *ngIf="form.get('personalInfo')?.errors?.['minlength']">Personal information should have at least 10 characters!</div>
+                <div class="form-label text-danger error" *ngIf="form.get('personalInfo')?.errors?.['maxlength']">Personal information cannot have more than 7000 characters!
+                    characters!</div>
+            </ng-container>
+
             <div class="field mb-5">
                 <div class="control input-float">
-                    <input type="text" class="input" name="avatar" formControlName="avatar" ngModel="{{user?.avatar}}">
+                    <input type="text" class="input" name="avatar" formControlName="avatar" ngModel="{{user?.avatar}}" required pattern="^https?://.+">
                     <label for="avatar"></label>
                 </div>
             </div>
+
+            <ng-container *ngIf="form.get('avatar')?.touched">
+                <div class="form-label text-danger error" *ngIf="form.get('avatar')?.errors?.['required']">Avatar is required!</div>
+                <div class="form-label text-danger error" *ngIf="form.get('avatar')?.errors?.['pattern']">You must give a URL!
+                    characters!</div>
+            </ng-container>
 
             <div>
                 <button class="btn-edit mt-2 p-2">Edit</button>
