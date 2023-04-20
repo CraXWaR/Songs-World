@@ -4,16 +4,16 @@ const songSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String,
-        minlength: [3, 'You should have at least 3 characters!']
+        minlength: [3, 'Song name should have at least 3 characters!']
     },
     author: {
         required: true,
         type: String,
-        minlength: [2, 'You should have at least 2 characters!']
+        minlength: [2, 'Author name should have at least 2 characters!']
     },
     genre: {
         required: true,
-        type: String
+        type: String,
     },
     year: {
         required: true,
@@ -25,7 +25,7 @@ const songSchema = new mongoose.Schema({
         required: true,
         type: Number,
         min: [10, 'Song should be more expensive than 10 dolars!'],
-        max: [200, 'Song shouldn\'t be more expensive than 200 dolars!']
+        max: [200, 'Song can\'t be more expensive than 200 dolars!']
     },
     description: {
         required: false,
