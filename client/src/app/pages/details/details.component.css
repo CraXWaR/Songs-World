@@ -82,3 +82,7 @@ img {
 a {
     text-decoration: none;
 }
+
+.error {
+    margin-top: -20px;
+}

@@ -46,53 +46,125 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="name" ngModel="{{song?.name}}" #name="ngModel">
+                    <input type="text" class="input mt-4" name="name" ngModel="{{song?.name}}" #name="ngModel" required minlength="3">
                     <label for="name"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="name.touched">
+                <div class="form-label text-danger error" *ngIf="name.errors?.['required']">
+                    <strong>Error!</strong> Song name is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="name.errors?.['minlength']">
+                    <strong>Error!</strong> Song name should have at least 3 characters!
+                </div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="author" ngModel="{{song?.author}}" #author="ngModel">
+                    <input type="text" class="input mt-2" name="author" ngModel="{{song?.author}}" #author="ngModel" required minlength="2">
                     <label for="author"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="author.touched">
+                <div class="form-label text-danger error" *ngIf="author.errors?.['required']">
+                    <strong>Error!</strong> Song author is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="author.errors?.['minlength']">
+                    <strong>Error!</strong> Author name should have at least 2 characters!
+                </div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="genre" ngModel="{{song?.genre}}" #genre="ngModel">
+                    <input type="text" class="input mt-2" name="genre" ngModel="{{song?.genre}}" #genre="ngModel" required maxlength="20">
                     <label for="genre"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="genre.touched">
+                <div class="form-label text-danger error" *ngIf="genre.errors?.['required']">
+                    <strong>Error!</strong> Song genre is required!
+                </div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="year" ngModel="{{song?.year}}" #year="ngModel">
+                    <input type="number" class="input mt-2" name="year" ngModel="{{song?.year}}" #year="ngModel" required
+                    min="1950" max="2023">
                     <label for="year"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="year.touched">
+                <div class="form-label text-danger error" *ngIf="year.errors?.['required']">
+                    <strong>Error!</strong> Song year is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="year.errors?.['min']">
+                    <strong>Error!</strong> Song year should be newer than 1950's!
+                </div>
+                <div class="form-label text-danger error" *ngIf="year.errors?.['max']">
+                    <strong>Error!</strong> Song cannot be from the future!
+                </div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="price" ngModel="{{song?.price}}" #price="ngModel">
+                    <input type="number" class="input mt-2" name="price" ngModel="{{song?.price}}" #price="ngModel" required
+                    min="10" max="200">
                     <label for="price"></label>
                 </div>
             </div>
 
+            <ng-container *ngIf="price.touched">
+                <div class="form-label text-danger error" *ngIf="price.errors?.['required']">
+                    <strong>Error!</strong> Song price is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="price.errors?.['min']">
+                    <strong>Error!</strong> Song should be more expensive than 10 dolars!
+                </div>
+                <div class="form-label text-danger error" *ngIf="price.errors?.['max']">
+                    <strong>Error!</strong> Song can't be more expensive than 200 dolars!
+                </div>
+            </ng-container>
+
             <div class="field mb-4">
                 <div class="control input-float">
                     <textarea name="description" class="input mt-2" name="description" ngModel="{{song?.description}}"
-                        cols="30" rows="5" #description="ngModel"></textarea>
+                        cols="30" rows="5" #description="ngModel" required minlength="10"
+                        maxlength="500"></textarea>
                 </div>
             </div>
+
+            <ng-container *ngIf="description.touched">
+                <div class="form-label text-danger error" *ngIf="description.errors?.['required']">
+                    <strong>Error!</strong> Song description is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="description.errors?.['minlength']">
+                    <strong>Error!</strong> Song description should have at least 10 characters!
+                </div>
+                <div class="form-label text-danger error" *ngIf="description.errors?.['maxlength']">
+                    <strong>Error!</strong> Song description shouldn\'t have more than 500 characters!
+                </div>
+            </ng-container>
 
             <div class="field mb-4">
                 <div class="control input-float">
                     <input type="text" class="input mt-2" name="songImage" ngModel="{{song?.songImage}}"
-                        #songImage="ngModel">
+                        #songImage="ngModel" required pattern="^https?://.+">
                     <label for="songImage"></label>
                 </div>
             </div>
+
+            <ng-container *ngIf="songImage.touched">
+                <div class="form-label text-danger error" *ngIf="songImage.errors?.['required']">
+                    <strong>Error!</strong> Song song image is required!
+                </div>
+                <div class="form-label text-danger error" *ngIf="songImage.errors?.['pattern']">
+                    <strong>Error!</strong> You must give a URL!
+                </div>
+            </ng-container>
 
             <div>
                 <button class="btn-edit mt-2 p-2">Edit Song</button>
