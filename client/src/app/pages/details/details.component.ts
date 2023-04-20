@@ -14,7 +14,7 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
-  
+
   song: ISong | undefined;
   isOwner: boolean = false;
   errors: Object | undefined;
@@ -35,16 +35,14 @@ export class DetailsComponent {
 
   getSong() {
     this.song = undefined;
-    const decoded = this.decodeToken(this.token)  as { _id: string };
+    const decoded = this.decodeToken(this.token) as { _id: string };
     let userId = decoded._id
 
     const id = this.activatedRoute.snapshot.params['id'];
     this.songService.getOneSong(id).subscribe({
       next: (song) => {
         this.song = song;
-        // console.log(this.userService.user);
-        //TODO fix userId
-        
+
         if (userId == song?.owner._id) {
           this.isOwner = true;
         } else {
@@ -61,7 +59,7 @@ export class DetailsComponent {
   delete() {
     if (this.userService.user?._id != this.song?.owner._id || !this.token) {
       console.log('hi');
-      
+
       this.router.navigate(['**']);
 
     }
@@ -77,13 +75,11 @@ export class DetailsComponent {
   }
 
   onEdit(form: NgForm) {
-    //TODO check if owner
-
     const id = this.song?._id;
     let token = localStorage.getItem('token');
     let value = form.value;
     value.token = token;
-    
+
     this.songService.updateSong(id, value).subscribe({
       next: (song) => {
         this.song = song;

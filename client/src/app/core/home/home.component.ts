@@ -13,7 +13,7 @@ export class HomeComponent {
   constructor(private songService: SongService) {
     this.getMostExpensiveSongs();
   }
-  
+
   getMostExpensiveSongs() {
     this.songService.getMostExpnesiveSongs().subscribe({
       next: (value) => this.songs = value,

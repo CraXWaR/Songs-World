@@ -62,6 +62,3 @@ export class ProfileComponent {
     })
   }
 }
-
-
-//TODO GET USER INFO

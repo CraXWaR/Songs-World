@@ -7,5 +7,5 @@ export interface IUser {
     _id: any,
     songs: string[],
     favouriteSongs: string[],
-    avatar: string,
+    avatar: string
 }

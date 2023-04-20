@@ -2,7 +2,7 @@ const { validateToken } = require("../services/user");
 
 const authMiddleware = (req, res, next) => {
     const cookie = req.cookies?.auth;
-    if(cookie != 'none' && cookie != undefined){
+    if (cookie != 'none' && cookie != undefined) {
         try {
             const user = validateToken(cookie);
             req.user = {
@@ -15,7 +15,7 @@ const authMiddleware = (req, res, next) => {
             res.json(error);
             console.log(error);
         }
-    }else {
+    } else {
         req.user = {
             cookie: 'none'
         }

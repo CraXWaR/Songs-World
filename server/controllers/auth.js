@@ -59,7 +59,7 @@ router.post('/user', (req, res) => {
     // if (!data) {
     //     return;
     // }
-    
+
     try {
         const username = token.username;
         const email = token.email;

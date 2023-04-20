@@ -10,5 +10,5 @@ export interface ISong {
     price: number,
     _id: string,
     owner: IUser,
-    // addedBy: IUser[]
+    addedBy: IUser[]
 }

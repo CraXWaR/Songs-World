@@ -46,7 +46,8 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-4" name="name" ngModel="{{song?.name}}" #name="ngModel" required minlength="3">
+                    <input type="text" class="input mt-4" name="name" ngModel="{{song?.name}}" #name="ngModel" required
+                        minlength="3">
                     <label for="name"></label>
                 </div>
             </div>
@@ -62,7 +63,8 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="author" ngModel="{{song?.author}}" #author="ngModel" required minlength="2">
+                    <input type="text" class="input mt-2" name="author" ngModel="{{song?.author}}" #author="ngModel"
+                        required minlength="2">
                     <label for="author"></label>
                 </div>
             </div>
@@ -78,7 +80,8 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="text" class="input mt-2" name="genre" ngModel="{{song?.genre}}" #genre="ngModel" required maxlength="20">
+                    <input type="text" class="input mt-2" name="genre" ngModel="{{song?.genre}}" #genre="ngModel"
+                        required maxlength="20">
                     <label for="genre"></label>
                 </div>
             </div>
@@ -91,8 +94,8 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="year" ngModel="{{song?.year}}" #year="ngModel" required
-                    min="1950" max="2023">
+                    <input type="number" class="input mt-2" name="year" ngModel="{{song?.year}}" #year="ngModel"
+                        required min="1950" max="2023">
                     <label for="year"></label>
                 </div>
             </div>
@@ -111,8 +114,8 @@
 
             <div class="field mb-4">
                 <div class="control input-float">
-                    <input type="number" class="input mt-2" name="price" ngModel="{{song?.price}}" #price="ngModel" required
-                    min="10" max="200">
+                    <input type="number" class="input mt-2" name="price" ngModel="{{song?.price}}" #price="ngModel"
+                        required min="10" max="200">
                     <label for="price"></label>
                 </div>
             </div>
@@ -132,8 +135,7 @@
             <div class="field mb-4">
                 <div class="control input-float">
                     <textarea name="description" class="input mt-2" name="description" ngModel="{{song?.description}}"
-                        cols="30" rows="5" #description="ngModel" required minlength="10"
-                        maxlength="500"></textarea>
+                        cols="30" rows="5" #description="ngModel" required minlength="10" maxlength="500"></textarea>
                 </div>
             </div>
 

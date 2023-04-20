@@ -18,12 +18,11 @@ export class CatalogComponent {
     this.getAllSongs();
   }
 
-  //TODO add if no user to remove the details btn
   getAllSongs() {
     if (!this.token) {
       this.ifUser = false;
     }
-      
+
     this.songs = undefined;
     this.songService.getAllSongs().subscribe({
       next: (songs) => {

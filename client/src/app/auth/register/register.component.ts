@@ -11,12 +11,11 @@ import { emailValidator, passwordValidator } from 'src/app/shared/validators';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  
+
   form!: FormGroup;
   errors: string | undefined = undefined;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
-    //TODO VALIDATONS!
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -28,13 +27,11 @@ export class RegisterComponent {
     });
   }
   register() {
-    // console.log(this.form.value);
     this.userService.register(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        // console.log(err);
         this.errors = errorHandler(err.error?.error);
       }
     })
