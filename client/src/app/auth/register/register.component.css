@@ -46,3 +46,7 @@ a {
 .error {
     margin-top: -20px;
 }
+
+.error-fix {
+    margin-bottom: -15px;
+}

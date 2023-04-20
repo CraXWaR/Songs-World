@@ -13,9 +13,9 @@
         </div>
 
         <ng-container *ngIf="form.get('username')?.touched">
-            <div class="form-label text-danger error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
-            <div class="form-label text-danger error" *ngIf="form.get('username')?.errors?.['minlength']">Username should have 3 characters!</div>
-            <div class="form-label text-danger error" *ngIf="form.get('username')?.errors?.['maxlength']">Username shouldn't have more than 10!
+            <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
+            <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['minlength']">Username should have 3 characters!</div>
+            <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['maxlength']">Username shouldn't have more than 10!
                 characters!</div>
         </ng-container>
 
@@ -41,8 +41,8 @@
         </div>
 
         <ng-container *ngIf="form.get('email')?.touched">
-            <div class="form-label text-danger error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</div>
-            <div class="form-label text-danger error" *ngIf="form.get('email')?.errors?.['invalidEmail']">Email should be valid!</div>
+            <div class="form-label text-danger error-fix" *ngIf="form.get('email')?.errors?.['required']">Email is required!</div>
+            <div class="form-label text-danger error-fix" *ngIf="form.get('email')?.errors?.['invalidEmail']">Email should be valid!</div>
         </ng-container>
 
         <div class="field mb-4">
