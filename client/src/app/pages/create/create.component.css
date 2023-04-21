@@ -26,12 +26,6 @@
     color: lightgrey;
 }
 
-/* .input:focus {
-    color: red;
-    border-color: #0081b8;
-    box-shadow: 0, 0, 0, 0.125em rgb(0, 129, 184);
-} */
-
 .btn-create {
     width: 100%;
     color: #fff;
