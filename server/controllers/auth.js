@@ -45,20 +45,11 @@ router.delete('/logout', async (req, res) => {
     res.send({
         message: 'Cookie deleted successfully!'
     });
-
-
-    // let token = req.user.token;
-    // await logout(token);
-    // res.status(204).end();
 });
 
 router.post('/user', (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-
-    // if (!data) {
-    //     return;
-    // }
 
     try {
         const username = token.username;

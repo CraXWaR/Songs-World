@@ -7,9 +7,6 @@ router.post('/', async (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
     try {
-        // const userId = req?.user?._id;
-        // console.log(userId);
-        // console.log(token._id);
         const userId = token._id;
         const song = await addSong(data, userId);
         //TODO update songs added by users
@@ -46,7 +43,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    //TODO check user
     await deleteSong(req.params.id);
     res.status(200).json('Song deleted!');
 });

@@ -37,7 +37,6 @@ const editSong = async (id, data) => {
         throw new Error(error);
     }
 }
-//TODO more funcions for song CRUD operations
 
 module.exports = {
     addSong,
