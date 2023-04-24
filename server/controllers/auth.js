@@ -1,15 +1,14 @@
 const { register, login, updateUser } = require('../services/user');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
+const User = require('../models/User');
 
 router.post('/register', async (req, res) => {
     const data = req.body;
 
     try {
         const user = await register(data);
-        //TODO COOKIES
-        // res.cookie('userId', user._id, { maxAge: 86400000 });
-        res.cookie("auth", user.accessToken, { secure: true, sameSite: 'none', maxAge: 86400000 });
+        res.cookie("auth", user.accessToken, { secure: true,sameSite: 'none'});
         res.status(201).json(user);
     } catch (error) {
         console.log(error);
@@ -24,10 +23,8 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await login(email, password);
-        //TODO COOKIES
-        // res.cookie('userId', user._id, { maxAge: 86400000 });
-        res.cookie("auth", user.accessToken, { sameSite: 'none', secure: true, maxAge: 86400000 });
-        res.status(201).json(user);
+        res.cookie("auth", user.accessToken, { sameSite: 'none' , secure: true});
+        res.status(201).json(user)
     } catch (error) {
         console.log(error);
         res.status(400).json({ error: error.message });
@@ -47,10 +44,15 @@ router.delete('/logout', async (req, res) => {
     });
 });
 
-router.post('/user', (req, res) => {
+router.post('/user', async (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-
+    let cookie = req.user.cookie;
+    if (cookie ) {
+        console.log(req.user);
+    } else {
+        console.log('hi');
+    }
     try {
         const username = token.username;
         const email = token.email;

@@ -6,7 +6,6 @@ const { authMiddleware } = require('./middlewares/auth');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-//TODO cookie/session 
 
 serverStart()
 async function serverStart() {

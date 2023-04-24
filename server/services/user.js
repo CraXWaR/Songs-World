@@ -24,7 +24,6 @@ const createAccessToken = (user) => {
     };
 
     const accessToken = jwt.sign(payload, server.SECRET_KEY);
-
     return {
         username: user.username,
         city: user.city,
@@ -64,8 +63,7 @@ const login = async (email, password) => {
     const isUser = await bcrypt.compare(password, user.password);
 
     if (isUser) {
-        let userToReturn = await createAccessToken(user);
-        userToReturn.avatar = user.avatar;
+        let userToReturn = createAccessToken(user);
         return userToReturn;
 
     } else {
