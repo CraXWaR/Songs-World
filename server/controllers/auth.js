@@ -8,7 +8,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await register(data);
-        res.cookie("auth", user.accessToken, { secure: true,sameSite: 'none'});
+        // res.cookie("auth", user.accessToken, { httpOnly: true, secure: true,sameSite: 'none'});
         res.status(201).json(user);
     } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await login(email, password);
-        res.cookie("auth", user.accessToken, { sameSite: 'none' , secure: true});
+        // res.cookie("auth", user.accessToken, { httpOnly: true, sameSite: 'none' , secure: true});
         res.status(201).json(user)
     } catch (error) {
         console.log(error);
@@ -47,12 +47,7 @@ router.delete('/logout', async (req, res) => {
 router.post('/user', async (req, res) => {
     const data = req.body;
     const token = jwtDecode(data.token);
-    let cookie = req.user.cookie;
-    if (cookie ) {
-        console.log(req.user);
-    } else {
-        console.log('hi');
-    }
+
     try {
         const username = token.username;
         const email = token.email;

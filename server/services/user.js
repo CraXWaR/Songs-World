@@ -20,7 +20,8 @@ const createAccessToken = (user) => {
         city: user.city,
         email: user.email,
         personalInfo: user.personalInfo,
-        avatar: user.avatar
+        avatar: user.avatar,
+        // songs: user.songs
     };
 
     const accessToken = jwt.sign(payload, server.SECRET_KEY);
@@ -30,6 +31,7 @@ const createAccessToken = (user) => {
         email: user.email,
         personalInfo: user.personalInfo,
         avatar: user.avatar,
+        // songs: user.songs,
         accessToken,
         _id: user._id
     };
