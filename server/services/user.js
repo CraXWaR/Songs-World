@@ -81,6 +81,17 @@ const updateUser = async (id, data) => {
     }
 }
 
+const updateSongs = async (_id, songId) => {
+    try {
+        const user = await User.findById(_id);
+        let arr = user.songs;
+        arr.push(songId);
+        await User.findByIdAndUpdate(_id, { songs: arr });
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
 const logout = async (token) => {
     await blacklisted.create({ token });
 }
@@ -91,6 +102,7 @@ module.exports = {
     register,
     login,
     updateUser,
-    logout,
+    updateSongs,
+    logout
 
 }
