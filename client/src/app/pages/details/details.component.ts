@@ -58,8 +58,6 @@ export class DetailsComponent {
 
   delete() {
     if (this.userService.user?._id != this.song?.owner._id || !this.token) {
-      console.log('hi');
-
       this.router.navigate(['**']);
 
     }
