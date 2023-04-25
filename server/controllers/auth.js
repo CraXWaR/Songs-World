@@ -54,9 +54,8 @@ router.post('/user', async (req, res) => {
         const city = token.city;
         const personalInfo = token.personalInfo;
         const avatar = token.avatar;
-        const songs = token.songs;
 
-        res.status(200).json({ "username": username, "email": email, "city": city, "personalInfo": personalInfo, "avatar": avatar, "songs": songs });
+        res.status(200).json({ "username": username, "email": email, "city": city, "personalInfo": personalInfo, "avatar": avatar });
         res.end();
     } catch (error) {
         res.status(400).json({ error: error.message });

@@ -67,20 +67,4 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.get('/owned-songs', async (req, res) => {
-    console.log(1);
-    const data = req.body;
-    console.log(data);
-    try {
-        const token = jwtDecode(data.token);
-        const userId = token._id;
-        let ownedSongs = getOwnedSongs(userId);
-        
-        res.status(200).json(ownedSongs?.songs)
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ error: error.message });
-    } 
-});
-
 module.exports = router;
