@@ -7,6 +7,7 @@ import { errorHandler } from 'src/app/shared/errorHandler';
 import { ISong } from 'src/app/shared/interfaces/songInterface';
 
 import jwt_decode from 'jwt-decode';
+import { IUser } from 'src/app/shared/interfaces/userInterface';
 
 @Component({
   selector: 'app-details',
@@ -17,12 +18,14 @@ export class DetailsComponent {
 
   song: ISong | undefined;
   isOwner: boolean = false;
+  user: IUser | undefined;
   errors: Object | undefined;
   editMode: boolean = false;
   token: string | null = localStorage.getItem('token');
 
   constructor(private songService: SongService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getSong();
+    this.getUserInfo();
   }
 
   decodeToken(token: any) {
@@ -85,6 +88,21 @@ export class DetailsComponent {
       },
       error: (err) => {
         this.errors = errorHandler(err.error?.error);
+      }
+    });
+  }
+
+  getUserInfo() {
+    let token = localStorage.getItem('token');
+
+    this.userService.getUserData({ token }).subscribe({
+      next: (user) => {
+        this.user = user;
+        console.log(this.user);
+        
+      },
+      error: (err) => {
+        console.log(err);
       }
     });
   }
