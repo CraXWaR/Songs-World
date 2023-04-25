@@ -37,12 +37,9 @@ export class ProfileComponent {
     this.userService.getUserData({ token }).subscribe({
       next: (user) => {
         this.user = user
-        console.log(this.user);
-
       },
       error: (err) => {
         console.log(err);
-
       }
     });
   }
