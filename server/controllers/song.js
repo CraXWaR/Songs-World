@@ -68,7 +68,9 @@ router.put('/:id', async (req, res) => {
 });
 
 router.get('/owned-songs', async (req, res) => {
+    console.log(1);
     const data = req.body;
+    console.log(data);
     try {
         const token = jwtDecode(data.token);
         const userId = token._id;

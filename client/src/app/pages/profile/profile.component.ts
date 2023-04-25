@@ -42,6 +42,8 @@ export class ProfileComponent {
     this.userService.getUserData({ token }).subscribe({
       next: (user) => {
         this.user = user
+        console.log(this.user);
+        
       },
       error: (err) => {
         console.log(err);
@@ -70,6 +72,8 @@ export class ProfileComponent {
     this.songService.getOwnedSongs().subscribe({
       next: (v) => {
         this.songs = v;
+        console.log(this.songs);
+        
         if (v.length == 0) {
           this.isEmpty = true;
         }

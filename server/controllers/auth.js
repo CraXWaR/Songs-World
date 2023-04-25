@@ -1,7 +1,7 @@
 const { register, login, updateUser } = require('../services/user');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
-const User = require('../models/User');
+// const User = require('../models/User');
 
 router.post('/register', async (req, res) => {
     const data = req.body;
@@ -54,8 +54,9 @@ router.post('/user', async (req, res) => {
         const city = token.city;
         const personalInfo = token.personalInfo;
         const avatar = token.avatar;
+        const songs = token.songs;
 
-        res.status(200).json({ "username": username, "email": email, "city": city, "personalInfo": personalInfo, "avatar": avatar });
+        res.status(200).json({ "username": username, "email": email, "city": city, "personalInfo": personalInfo, "avatar": avatar, "songs": songs });
         res.end();
     } catch (error) {
         res.status(400).json({ error: error.message });

@@ -41,6 +41,8 @@ export class SongService {
   }
 
   getOwnedSongs() {
+    console.log(this.http.get<ISong[]>(`${API_URL}/songs/owned-songs`));
+    
     return this.http.get<ISong[]>(`${API_URL}/songs/owned-songs`);
     
   }
