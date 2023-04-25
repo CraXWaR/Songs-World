@@ -39,4 +39,9 @@ export class SongService {
     return this.http.put<ISong>(`${API_URL}/songs/${id}`, data);
 
   }
+
+  getOwnedSongs() {
+    return this.http.get<ISong[]>(`${API_URL}/songs/owned-songs`);
+    
+  }
 }
