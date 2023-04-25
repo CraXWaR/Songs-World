@@ -14,17 +14,12 @@
                     <p><b>Genre:</b> {{song?.genre}}</p>
                     <p class="mb-0"><b>Price:</b> ${{song?.price}}</p>
                 </div><!-- / song-info-box -->
-
-                <div class="project-info-box mt-0 mb-0">
-                    <ng-container *ngIf="!isOwner">
-                        <button class="btn btn-outline-dark me-2">Buy Now</button>
-                        <button class="btn btn-outline-dark me-2">Like</button>
-                    </ng-container>
-                    <ng-container *ngIf="isOwner">
+                <ng-container *ngIf="isOwner">
+                    <div class="project-info-box mt-0 mb-0">
                         <button (click)="editMode = true" class="btn btn-outline-dark me-2">Edit</button>
                         <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
-                    </ng-container>
-                </div><!-- / song-info-box -->
+                    </div>
+                </ng-container><!-- / song-info-box -->
             </div><!-- / column -->
 
             <div class="col-md-7">
