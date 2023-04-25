@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SongService } from 'src/app/services/song.service';
 import { UserService } from 'src/app/services/user.service';
 import { errorHandler } from 'src/app/shared/errorHandler';
+import { ISong } from 'src/app/shared/interfaces/songInterface';
 import { IUser } from 'src/app/shared/interfaces/userInterface';
 import { emailValidator } from 'src/app/shared/validators';
 
@@ -16,10 +18,13 @@ export class ProfileComponent {
   onEdit: boolean = false;
   form!: FormGroup;
   errors: string | undefined = undefined;
+  songs:ISong[] | any =null;
+  isEmpty: boolean = false;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router, private songService: SongService) {
 
     this.getUserInfo();
+    this.getOwnedSongs();
 
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
@@ -58,6 +63,19 @@ export class ProfileComponent {
       },
       error: (err) => {
         this.errors = errorHandler(err.error?.error);
+      }
+    });
+  }
+  getOwnedSongs() {
+    this.songService.getOwnedSongs().subscribe({
+      next: (v) => {
+        this.songs = v;
+        if (v.length == 0) {
+          this.isEmpty = true;
+        }
+      }, 
+      error: (err) => {
+        console.log(err);
       }
     })
   }
