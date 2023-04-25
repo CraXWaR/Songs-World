@@ -1,4 +1,5 @@
 const Song = require('../models/Song');
+const User = require("../models/User");
 
 require('dotenv').config();
 
@@ -38,11 +39,16 @@ const editSong = async (id, data) => {
     }
 }
 
+const getOwnedSongs = async (userId) => {
+    return await User.findById(userId).populate('songs');
+}
+
 module.exports = {
     addSong,
     getAllSongs,
     getMostExpensiveSongs,
     getOneSong,
     deleteSong,
-    editSong
+    editSong,
+    getOwnedSongs
 }
