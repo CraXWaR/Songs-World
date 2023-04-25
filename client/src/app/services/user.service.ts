@@ -23,11 +23,6 @@ export class UserService {
     }
   }
 
-  decodeToken(token: string) {
-    const decodedToken = jwt_decode(token);
-    return decodedToken;
-  }
-
   register(data: {}) {
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
@@ -64,7 +59,4 @@ export class UserService {
     return this.http.put<IUser>(`${API_URL}/user/${id}`, data);
 
   }
-
-  //TODO ADD REQUEST FUNCION TO GET USER INFO
-  // .pipe(tap((user)=> {if (user) {this.user = user;}}));
 }
