@@ -9,6 +9,7 @@ import { ISong } from 'src/app/shared/interfaces/songInterface';
 })
 export class HomeComponent {
   songs: ISong[] | undefined;
+  isEmpty: boolean = true;
 
   constructor(private songService: SongService) {
     this.getMostExpensiveSongs();
@@ -16,7 +17,12 @@ export class HomeComponent {
 
   getMostExpensiveSongs() {
     this.songService.getMostExpnesiveSongs().subscribe({
-      next: (value) => this.songs = value,
+      next: (value) => {
+        if (value.length > 0) {
+          this.isEmpty = false;
+          this.songs = value
+        }
+      },
       error: (err) => console.log(err)
     })
   }
