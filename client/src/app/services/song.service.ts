@@ -41,8 +41,6 @@ export class SongService {
   }
 
   addToFavouriteSong(id: string | undefined) {
-    console.log(this.http.get(`${API_URL}/songs/favourites/${id}`));
-    
     return this.http.get(`${API_URL}/songs/favourites/${id}`);
 
   }

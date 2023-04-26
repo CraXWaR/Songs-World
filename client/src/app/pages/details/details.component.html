@@ -22,7 +22,8 @@
                 </ng-container>
                 <ng-container *ngIf="!isOwner">
                     <div class="project-info-box mt-0 mb-0">
-                        <button (click)="addToFavourite()" class="btn btn-outline-dark me-2">Add to Favourites</button>
+                        <button *ngIf="!isFavourite" (click)="addToFavourite()" class="btn btn-outline-dark me-2">Add to Favourites</button>
+                        <p *ngIf="isFavourite" class="favSong">This song is already in favourites</p>
                     </div>
                 </ng-container><!-- / song-info-box -->
             </div><!-- / column -->
