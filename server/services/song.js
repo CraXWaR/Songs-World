@@ -1,4 +1,5 @@
 const Song = require('../models/Song');
+const User = require("../models/User");
 
 require('dotenv').config();
 
@@ -38,6 +39,17 @@ const editSong = async (id, data) => {
     }
 }
 
+const addToFavourite = async (userId, songId) => {
+    try {
+        const user = await User.findById(userId);
+        let arr = user.favouriteSongs;
+        arr.push(songId);
+        await User.findByIdAndUpdate(userId, { favouriteSongs: arr });
+    } catch (error) {
+        throw new Error (error);
+    }
+}
+
 module.exports = {
     addSong,
     getAllSongs,
@@ -45,4 +57,5 @@ module.exports = {
     getOneSong,
     deleteSong,
     editSong,
+    addToFavourite
 }
