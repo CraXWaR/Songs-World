@@ -2,7 +2,6 @@ const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong, edi
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 const { updateSongs } = require('../services/user');
-// const User = require('../models/User');
 
 router.post('/', async (req, res) => {
     const data = req.body;

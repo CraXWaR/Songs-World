@@ -40,13 +40,7 @@ const songSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
-    },
-    addedBy: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'User'
-        }
-    ]
+    }
 });
 
 const song = new mongoose.model('Song', songSchema);

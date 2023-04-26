@@ -36,12 +36,6 @@ const userSchema = new mongoose.Schema({
             ref: 'Song'
         }
     ],
-    favouriteSongs: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Song'
-        }
-    ],
     avatar: {
         required: false,
         type: String
