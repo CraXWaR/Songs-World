@@ -7,7 +7,6 @@ import { errorHandler } from 'src/app/shared/errorHandler';
 import { ISong } from 'src/app/shared/interfaces/songInterface';
 
 import jwt_decode from 'jwt-decode';
-import { IUser } from 'src/app/shared/interfaces/userInterface';
 
 @Component({
   selector: 'app-details',

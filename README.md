@@ -11,7 +11,7 @@ Every logged in user have access to "Catalog, Create, Songs details, Delete song
 
 TechStack:
 
-Client side - Angular CLI: 15.1.3, TypeScript: 4.7-.2
+Client side - Angular CLI: 15.1.3, TypeScript: 4.9.4, rxjs: 7.8.0, font-awesome: 4.7.0, angular-font-awesome: 3.1.2, bootstrap: 5.2.3, jwt-decode: 3.1.2
 Server side - Node: 17.2.0, ExpressJS: 4.18.2, bcryptjs: 2.4.3, jsonwebtoken: 9.0.0, mongoose: 6.7.3, nodemon: 2.0.20, jwt-decode: 3.1.2, cookie-parser: 1.4.6, cors: 2.8.5, dotenv: 16.0.3, nodemon: 2.0.20
 
 Setup:
