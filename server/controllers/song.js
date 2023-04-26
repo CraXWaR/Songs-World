@@ -1,4 +1,4 @@
-const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong, editSong, getOwnedSongs } = require('../services/song');
+const { addSong, getAllSongs, getMostExpensiveSongs, getOneSong, deleteSong, editSong, getOwnedSongs, addToFavourite } = require('../services/song');
 const router = require('express').Router();
 const jwtDecode = require('jwt-decode');
 const { updateSongs } = require('../services/user');
@@ -64,6 +64,19 @@ router.put('/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(400).json({ error: error.message })
+    }
+});
+
+router.get('/favourites/:id', async (req, res) => {
+    const data = req.body;
+    try {
+        const token = jwtDecode(data.token);
+        const userId = token._id;
+        const songId = req.params.id;
+        await addToFavourite(userId, songId);
+        res.status(200).json('Added to favourites successfully');
+    } catch (error) {
+        res.status(400).json({ error: error.message });
     }
 });
 
