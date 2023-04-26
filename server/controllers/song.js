@@ -67,19 +67,4 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.get('/favourites/:id', async (req, res) => {
-    const data = req.body;
-    try {
-        const token = jwtDecode(data.token);
-        const userId = token._id;
-        const songId = req.params.id;
-        console.log(userId);
-        console.log(songId);
-        await addToFavourite(userId, songId);
-        res.status(200).json('Added to favourites successfully');
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
 module.exports = router;

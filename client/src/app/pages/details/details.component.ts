@@ -21,7 +21,6 @@ export class DetailsComponent {
   errors: Object | undefined;
   editMode: boolean = false;
   token: string | null = localStorage.getItem('token');
-  isFavourite: boolean = false;
 
   constructor(private songService: SongService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getSong();
@@ -89,18 +88,5 @@ export class DetailsComponent {
         this.errors = errorHandler(err.error?.error);
       }
     });
-  }
-
-  addToFavourite() {
-    let id = this.song?._id;
-    
-    this.songService.addToFavouriteSong(id).subscribe({
-      next: () => {
-        this.isFavourite = true;
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    })
   }
 }

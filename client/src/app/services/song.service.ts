@@ -39,9 +39,4 @@ export class SongService {
     return this.http.put<ISong>(`${API_URL}/songs/${id}`, data);
 
   }
-
-  addToFavouriteSong(id: string | undefined) {
-    return this.http.get(`${API_URL}/songs/favourites/${id}`);
-
-  }
 }
