@@ -19,6 +19,11 @@
                         <button (click)="editMode = true" class="btn btn-outline-dark me-2">Edit</button>
                         <button (click)="delete()" class="btn btn-outline-dark me-2">Delete</button>
                     </div>
+                </ng-container>
+                <ng-container *ngIf="!isOwner">
+                    <div class="project-info-box mt-0 mb-0">
+                        <button (click)="addToFavourite()" class="btn btn-outline-dark me-2">Add to Favourites</button>
+                    </div>
                 </ng-container><!-- / song-info-box -->
             </div><!-- / column -->
 
