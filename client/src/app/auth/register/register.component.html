@@ -8,7 +8,7 @@
         <div class="field mb-1">
             <div class="control input-float">
                 <input type="text" class="input mt-4" name="username" formControlName="username" placeholder="Username"
-                    required minlength="4" maxlength="10">
+                    required minlength="3" maxlength="10">
                 <label for="username"></label>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['required']">Username is
                 required!</div>
             <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['minlength']">Username
-                should have 3 characters!</div>
+                should have at least 3 characters!</div>
             <div class="form-label text-danger error-fix" *ngIf="form.get('username')?.errors?.['maxlength']">Username
                 shouldn't have more than 10!
                 characters!</div>
@@ -34,8 +34,8 @@
         <ng-container *ngIf="form.get('city')?.touched">
             <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['required']">City is required!
             </div>
-            <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['minlength']">City should have 3
-                characters!</div>
+            <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['minlength']">City should have
+                at least 3 characters!</div>
             <div class="form-label text-danger error" *ngIf="form.get('city')?.errors?.['maxlength']">City shouldn't
                 have more than 20!
                 characters!</div>
