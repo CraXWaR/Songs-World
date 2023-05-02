@@ -7,6 +7,6 @@ router.get('/', (req, res) => {
     res.json('Working..');
 })
 router.use(authController);
-router.use('/songs', songController);
+router.use('/pedal', songController);
 
 module.exports = router;
