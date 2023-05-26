@@ -6,7 +6,7 @@ Single Page Application, created as Angular for the client side, Node.js for ser
 
 Information:
 
-The app works as blog for songs with basic funcionality. Every user who is not logged in have access to "Home, Catalog, Login and Register".
+The app works as blog for songs with basic functionality. Every user who is not logged in have access to "Home, Catalog, Login and Register".
 Every logged in user have access to "Catalog, Create, Songs details, Delete songs, Songs edit, Profile and Edit profile".
 
 TechStack:
